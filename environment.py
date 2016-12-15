@@ -35,6 +35,11 @@ path = (
     os.path.join(
         os.environ["CONDA_GIT_REPOSITORY"], "pyblish-bumpybox",
         "pyblish_bumpybox", "plugins", "deadline"
+    ) +
+    os.pathsep +
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"], "pyblish-blacksmithvfx",
+        "pyblish_blacksmithvfx", "plugins", "deadline"
     )
 )
 
