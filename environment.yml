@@ -16,7 +16,7 @@ dependencies:
   - https://github.com/tokejepsen/ftrack-hooks.git@5936f77465687cd4b4d86ecc4a331ae8abab5782
   - https://github.com/tokejepsen/ftrack-template.git@42f5e40cd634fb8a50998afaedc4f2cea229139b
   - https://github.com/pyblish/pyblish-base.git@6dc5781d6bb7b97fb7bc9df268f59e24a477c272
-  - https://github.com/tokejepsen/pyblish-blacksmithvfx.git@d9d6ccc25586c19b7ff9936b9987f27f9cb5316b
+  - https://github.com/tokejepsen/pyblish-blacksmithvfx.git@fc6d1c22b74578e55b439f9dc6575315bdae92cc
   - https://github.com/bumpybox/pyblish-bumpybox.git@39601f394e263638f789079157aaaceb10a40354
   - https://github.com/tokejepsen/pyblish-deadline.git@80c1d5b3d3bed044445a473caa6a9a227a956395
   - https://github.com/tokejepsen/pyblish-ftrack.git@f9d5c7b02607ed86ded0532136b4c743581534bf
