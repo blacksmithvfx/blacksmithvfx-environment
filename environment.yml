@@ -17,13 +17,13 @@ dependencies:
   - https://github.com/tokejepsen/ftrack-template.git@42f5e40cd634fb8a50998afaedc4f2cea229139b
   - https://github.com/pyblish/pyblish-base.git@6dc5781d6bb7b97fb7bc9df268f59e24a477c272
   - https://github.com/tokejepsen/pyblish-blacksmithvfx.git@d9d6ccc25586c19b7ff9936b9987f27f9cb5316b
-  - https://github.com/Bumpybox/pyblish-bumpybox.git@39601f394e263638f789079157aaaceb10a40354
+  - https://github.com/bumpybox/pyblish-bumpybox.git@39601f394e263638f789079157aaaceb10a40354
   - https://github.com/tokejepsen/pyblish-deadline.git@80c1d5b3d3bed044445a473caa6a9a227a956395
   - https://github.com/tokejepsen/pyblish-ftrack.git@f9d5c7b02607ed86ded0532136b4c743581534bf
   - https://github.com/pyblish/pyblish-houdini.git@88b189a82fd6b757aa7557c1c490b97e740154a5
   - https://github.com/tokejepsen/pyblish-lite.git@543a64d4d6f6d6ce425a52b9eba8969b8e896366
   - https://github.com/pyblish/pyblish-maya.git@93651557bb62d3f367d3ec753b7b832398373888
-  - https://github.com/tokejepsen/blacksmithvfx-core.git:
+  - https://github.com/tokejepsen/blacksmithvfx-environment.git:
     - python $REPO_PATH/environment.py
-  - https://github.com/Bumpybox/bumpybox-core.git@542fd14ee14efc44bd8a1d167fa7a42c1e8f1cc6:
+  - https://github.com/bumpybox/bumpybox-environment.git@542fd14ee14efc44bd8a1d167fa7a42c1e8f1cc6:
     - python $REPO_PATH/startup.py
