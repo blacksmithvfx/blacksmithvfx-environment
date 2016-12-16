@@ -15,7 +15,6 @@ dependencies:
   - https://bitbucket.org/tokejepsen/ftrack-connect-maya.git@4487fa733768a90d3a831d4570a8606c4a3d1556
   - https://github.com/tokejepsen/ftrack-hooks.git@5936f77465687cd4b4d86ecc4a331ae8abab5782
   - https://github.com/tokejepsen/ftrack-template.git@42f5e40cd634fb8a50998afaedc4f2cea229139b
-  - https://github.com/tokejepsen/ftrack-locations.git
   - https://github.com/pyblish/pyblish-base.git@6dc5781d6bb7b97fb7bc9df268f59e24a477c272
   - https://github.com/tokejepsen/pyblish-blacksmithvfx.git@d9d6ccc25586c19b7ff9936b9987f27f9cb5316b
   - https://github.com/bumpybox/pyblish-bumpybox.git@39601f394e263638f789079157aaaceb10a40354
