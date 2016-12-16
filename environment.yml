@@ -1,4 +1,4 @@
-name: blacksmithvfx-core
+name: blacksmithvfx-environment
 channels:
 - menpo
 dependencies:
