@@ -4,19 +4,28 @@ import platform
 import ftrack_template
 
 
-def dictionary_to_paths(dictionary, path="", results=[]):
+def dictionary_to_paths(data, path="", results=[]):
 
-    for key, value in dictionary.iteritems():
+    for key, value in data.iteritems():
 
         parent_path = (path + os.sep + key)
         if not path:
             parent_path = key
 
-        if value:
-            results.append(parent_path)
-            dictionary_to_paths(value, path=parent_path, results=results)
-        else:
-            results.append(parent_path)
+        if isinstance(value, dict):
+            if "isfile" in value:
+                temp = ftrack_template.Template("template", parent_path)
+                temp.isfile = value["isfile"]
+                temp.source = value["source"]
+                results.append(temp)
+            else:
+                temp = ftrack_template.Template("template", parent_path)
+                temp.isfile = False
+                results.append(temp)
+                if value:
+                    dictionary_to_paths(
+                        value, path=parent_path, results=results
+                    )
 
     return results
 
@@ -28,6 +37,7 @@ def register():
     if system_name != "windows":
         system_name = "unix"
 
+    # Common Ftrack entity paths
     mount = (
         "{#project.disk." + system_name + "}/{#project.root}/{#project.name}"
     )
@@ -47,7 +57,85 @@ def register():
     episode = "{#episode.name}"
     episodes = "Episodes/" + episode
 
-    structure = {
+    # Files included in structure
+    workspace_file = os.path.join(os.path.dirname(__file__), "workspace.mel")
+
+    # Structures
+    task_structure = {
+        "Publish": {
+            assetversion: {
+                file_component: {},
+                sequence_component: {}
+            }
+        },
+        "Work": {
+            "flame": {},
+            "{houdini}": {
+                "hip": {
+                    assetversion: {
+                        file_component: {},
+                        sequence_component: {}
+                    }
+                },
+            },
+            "houdini": {
+                "geo": {},
+                "hip": {},
+                "render": {},
+                "sim": {},
+                "tex": {},
+            },
+            "{maya}": {
+                "scenes": {
+                    assetversion: {
+                        file_component: {},
+                        sequence_component: {}
+                    }
+                },
+            },
+            "maya": {
+                "assets": {},
+                "autosave": {},
+                "cache": {
+                    "alembic": {},
+                    "bifrost": {},
+                    "nCache": {},
+                    "particles": {}
+                },
+                "clips": {},
+                "data": {},
+                "images": {},
+                "movies": {},
+                "particles": {},
+                "renderData": {
+                    "depth": {},
+                    "fur": {
+                        "furAttrMap": {},
+                        "furEqualMap": {},
+                        "furFiles": {},
+                        "furImages": {},
+                        "furShadowMap": {}
+                    },
+                    "iprImages": {}
+                },
+                "scenes": {
+                    "edit": {}
+                },
+                "scripts": {},
+                "sound": {},
+                "sourceimages": {
+                    "3dPaintTextures": {}
+                },
+                "workspace.mel": {
+                    "isfile": True,
+                    "source": workspace_file
+                }
+            },
+            "nuke": {}
+        }
+    }
+
+    project_structure = {
         mount: {
             "in": {
                 "assets": {},
@@ -82,139 +170,53 @@ def register():
                 "roto": {},
                 "tracking": {},
             },
-            "work": {
-                tasks: {
-                    assetversion: {
-                        file_component: {},
-                        sequence_component: {}
-                    }
-                },
+            tasks: task_structure,
+            assets: {
+                task: task_structure
+            },
+            shots: {
+                task: task_structure,
                 assets: {
-                    task: {
-                        assetversion: {
-                            file_component: {},
-                            sequence_component: {}
-                        }
+                    task: task_structure
+                },
+            },
+            sequences: {
+                task: task_structure,
+                assets: {
+                    task: task_structure
+                },
+                shot: {
+                    task: task_structure,
+                    assets: {
+                        task: task_structure
                     }
-                },
-                shots: {
-                    task: {
-                        assetversion: {
-                            file_component: {},
-                            sequence_component: {}
-                        }
-                    },
-                    assets: {
-                        task: {
-                            assetversion: {
-                                file_component: {},
-                                sequence_component: {}
-                            }
-                        }
-                    },
-                },
-                sequences: {
-                    task: {
-                        assetversion: {
-                            file_component: {},
-                            sequence_component: {}
-                        }
-                    },
-                    assets: {
-                        task: {
-                            assetversion: {
-                                file_component: {},
-                                sequence_component: {}
-                            }
-                        }
-                    },
-                    shot: {
-                        task: {
-                            assetversion: {
-                                file_component: {},
-                                sequence_component: {}
-                            }
-                        },
-                        assets: {
-                            task: {
-                                assetversion: {
-                                    file_component: {},
-                                    sequence_component: {}
-                                }
-                            }
-                        }
-                    }
-                },
-                episodes: {
-                    task: {
-                        assetversion: {
-                            file_component: {},
-                            sequence_component: {}
-                        }
-                    },
-                    assets: {
-                        task: {
-                            assetversion: {
-                                file_component: {},
-                                sequence_component: {}
-                            }
-                        }
-                    },
-                    shot: {
-                        task: {
-                            assetversion: {
-                                file_component: {},
-                                sequence_component: {}
-                            }
-                        },
-                        assets: {
-                            task: {
-                                assetversion: {
-                                    file_component: {},
-                                    sequence_component: {}
-                                }
-                            }
-                        }
-                    },
-                    sequence: {
-                        task: {
-                            assetversion: {
-                                file_component: {},
-                                sequence_component: {}
-                            }
-                        },
-                        assets: {
-                            task: {
-                                assetversion: {
-                                    file_component: {},
-                                    sequence_component: {}
-                                }
-                            }
-                        },
-                        shot: {
-                            task: {
-                                assetversion: {
-                                    file_component: {},
-                                    sequence_component: {}
-                                }
-                            },
-                            assets: {
-                                task: {
-                                    assetversion: {
-                                        file_component: {},
-                                        sequence_component: {}
-                                    }
-                                }
-                            }
-                        }
-                    },
                 }
+            },
+            episodes: {
+                task: task_structure,
+                assets: {
+                    task: task_structure
+                },
+                shot: {
+                    task: task_structure,
+                    assets: {
+                        task: task_structure
+                    }
+                },
+                sequence: {
+                    task: task_structure,
+                    assets: {
+                        task: task_structure
+                    },
+                    shot: {
+                        task: task_structure,
+                        assets: {
+                            task: task_structure
+                        }
+                    }
+                },
             }
         }
     }
 
-    templates = []
-    for path in dictionary_to_paths(structure):
-        templates.append(ftrack_template.Template("template", path))
-
-    return templates
+    return dictionary_to_paths(project_structure)
