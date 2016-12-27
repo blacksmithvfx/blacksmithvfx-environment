@@ -3,46 +3,138 @@ import os
 from conda_git_deployment import utils
 
 
-environment = {}
+root = os.path.dirname(__file__)
+env = {}
 
-# FTRACK_TEMPLATES_PATH
-path = os.path.join(
+# PYTHONPATH
+env["PYTHONPATH"] = [
+    os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-maya"),
     os.path.join(
-        os.path.join(os.path.dirname(__file__)), "environment",
-        "FTRACK_TEMPLATES_PATH"
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "pyblish-maya",
+        "pyblish_maya",
+        "pythonpath"
     ),
-)
+]
+"""
+# NUKE_PATH
+env["NUKE_PATH"] = [
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "pyblish-bumpybox",
+        "pyblish_bumpybox",
+        "environment_variables",
+        "nuke_path"
+    ),
+]
 
-environment["FTRACK_TEMPLATES_PATH"] = path
+# HOUDINI_PATH
+env["HOUDINI_PATH"] = [
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "pyblish-bumpybox",
+        "pyblish_bumpybox",
+        "environment_variables",
+        "houdini_path"
+    ),
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "pyblish-houdini",
+        "pyblish_houdini",
+        "houdini_path"
+    ),
+    "&"
+]
+
+# HIERO_PLUGIN_PATH
+env["HIERO_PLUGIN_PATH"] = [
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "pyblish-bumpybox",
+        "pyblish_bumpybox",
+        "environment_variables",
+        "hiero_plugin_path"
+    ),
+]
 
 # PYBLISHPLUGINPATH
-path = (
+paths = [
+    os.path.join(root, "environment", "PYBLISHPLUGINPATH", "maya"),
+    os.path.join(root, "environment", "PYBLISHPLUGINPATH", "houdini"),
+    os.path.join(root, "environment", "PYBLISHPLUGINPATH", "deadline"),
     os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"], "pyblish-blacksmithvfx",
-        "pyblish_blacksmithvfx", "plugins", "maya"
-    ) +
-    os.pathsep +
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "pyblish-deadline",
+        "pyblish_deadline",
+        "plugins"
+    ),
     os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"], "pyblish-blacksmithvfx",
-        "pyblish_blacksmithvfx", "plugins", "houdini"
-    ) +
-    os.pathsep +
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "pyblish-bumpybox",
+        "pyblish_bumpybox",
+        "plugins",
+        "deadline"
+    ),
     os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"], "pyblish-deadline",
-        "pyblish_deadline", "plugins"
-    ) +
-    os.pathsep +
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "pyblish-bumpybox",
+        "pyblish_bumpybox",
+        "plugins"
+    ),
     os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"], "pyblish-bumpybox",
-        "pyblish_bumpybox", "plugins", "deadline"
-    ) +
-    os.pathsep +
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "pyblish-bumpybox",
+        "pyblish_bumpybox",
+        "plugins",
+        "maya"
+    ),
     os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"], "pyblish-blacksmithvfx",
-        "pyblish_blacksmithvfx", "plugins", "deadline"
-    )
-)
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "pyblish-bumpybox",
+        "pyblish_bumpybox",
+        "plugins",
+        "houdini"
+    ),
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "pyblish-bumpybox",
+        "pyblish_bumpybox",
+        "plugins",
+        "ftrack"
+    ),
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "pyblish-ftrack",
+        "pyblish_ftrack",
+        "plugins"
+    ),
+]
 
-environment["PYBLISHPLUGINPATH"] = path
+env["PYBLISHPLUGINPATH"] = paths
 
-utils.write_environment(environment)
+# FTRACK_TEMPLATES_PATH
+paths = [os.path.join(root, "environment", "FTRACK_TEMPLATES_PATH")]
+
+env["FTRACK_TEMPLATES_PATH"] = paths
+
+# FTRACK_CONNECT_PLUGIN_PATH
+env["FTRACK_CONNECT_PLUGIN_PATH"] = [
+    os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks"),
+]
+
+# FTRACK_LOCATION_PLUGIN_PATH
+env["FTRACK_LOCATION_PLUGIN_PATH"] = [
+    os.path.join(root, "environment", "FTRACK_LOCATION_PLUGIN_PATH"),
+]
+
+# FTRACK_EVENT_PLUGIN_PATH
+env["FTRACK_EVENT_PLUGIN_PATH"] = [
+    os.path.join(root, "environment", "FTRACK_EVENT_PLUGIN_PATH"),
+]
+
+# FTRACK_LOCATIONS_MODULE
+env["FTRACK_LOCATIONS_MODULE"] = [
+    os.environ.get("FTRACK_LOCATIONS_MODULE", "ftrack_template_disk")
+]
+"""
+utils.write_environment(env)
