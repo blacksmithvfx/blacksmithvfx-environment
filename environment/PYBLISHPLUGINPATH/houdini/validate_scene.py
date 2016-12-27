@@ -1,56 +1,8 @@
 import os
-import tempfile
-
-import hou
 
 import pyblish.api
-import ftrack
-from ftrack_locations import ftrack_template_disk
-
-
-class BlacksmithVFXHoudiniVersionUpScene(pyblish.api.Action):
-
-    label = "Version Up"
-    icon = "wrench"
-    on = "all"
-
-    def process(self, context, plugin):
-
-        file_path = os.path.join(
-            tempfile.gettempdir(), "pyblish-blacksmithvfx.hip"
-        )
-        hou.hipFile.save(file_name=file_path)
-
-        task = ftrack.Task(context.data["ftrackData"]["Task"]["id"])
-
-        asset = task.getParent().createAsset(
-            task.getName(),
-            "scene",
-            task=task
-        )
-
-        location = ftrack_template_disk.get_old_location()
-        components = asset.getVersions()[-1].getComponents(location=location)
-        version = asset.createVersion(taskid=task.getId())
-
-        # Recreating all components on new version
-        for component in components:
-            version.createComponent(
-                name=component.getName(),
-                path=component.getFilesystemPath(),
-                location=location
-            )
-
-        asset.publish()
-        path = version.getComponent(
-            name=pyblish.api.current_host(), location=location
-        ).getFilesystemPath()
-
-        hou.hipFile.load(
-            path,
-            suppress_save_prompt=True,
-            ignore_load_warnings=True
-        )
+import hou
+import ftrack_template
 
 
 class BlacksmithVFXHoudiniRepairScene(pyblish.api.Action):
@@ -61,76 +13,42 @@ class BlacksmithVFXHoudiniRepairScene(pyblish.api.Action):
 
     def process(self, context, plugin):
 
-        file_path = os.path.join(
-            tempfile.gettempdir(), "pyblish-blacksmithvfx.hip"
-        )
-        hou.hipFile.save(file_name=file_path)
-
-        ftrack_data = context.data["ftrackData"]
-        task = ftrack.Task(ftrack_data["Task"]["id"])
-        component_name = pyblish.api.current_host()
-        location = ftrack_template_disk.get_old_location()
-
-        asset = task.getParent().createAsset(
-            task.getName(),
-            "scene",
-            task=task
+        expected = BlacksmithVFXHoudiniValidateScene().get_expected_path(
+            context
         )
 
-        version = None
-        if asset.getVersions():
-            version = asset.getVersions()[-1]
+        if os.path.exists(expected):
+            msg = "\"{0}\" already exists. Please repair manually."
+            raise ValueError(msg.format(expected))
         else:
-            version = asset.createVersion(taskid=task.getId())
-
-        component = version.createComponent(
-            name=component_name, path=file_path,
-            location=location
-        )
-        component = location.getComponent(component.getId())
-
-        asset.publish()
-
-        hou.hipFile.load(
-            component.getFilesystemPath(),
-            suppress_save_prompt=True,
-            ignore_load_warnings=True
-        )
+            hou.hipFile.save(file_name=expected)
 
 
 class BlacksmithVFXHoudiniValidateScene(pyblish.api.ContextPlugin):
 
     order = pyblish.api.ValidatorOrder
     label = "Scene"
-    actions = [
-        BlacksmithVFXHoudiniRepairScene, BlacksmithVFXHoudiniVersionUpScene
-    ]
+    actions = [BlacksmithVFXHoudiniRepairScene]
     hosts = ["houdini"]
 
     def process(self, context):
 
-        ftrack_data = context.data["ftrackData"]
-        task = ftrack.Task(ftrack_data["Task"]["id"])
-        component_name = pyblish.api.current_host()
-        location = ftrack_template_disk.get_old_location()
+        # Get expected scene path
+        expected = self.get_expected_path(context)
 
-        assets = task.getAssets(
-            assetTypes=["scene"],
-            names=[ftrack_data["Task"]["name"]],
-            componentNames=[component_name]
-        )
+        # Get current scene path
+        current = os.path.abspath(context.data["currentFile"])
 
-        if not assets:
-            raise ValueError("No existing Ftrack asset found.")
+        msg = "Scene path is failed. Current: \"{0}\". Expected: \"{1}\"."
+        assert current == expected, msg.format(current, expected)
 
-        component = assets[0].getVersions()[-1].getComponent(
-            name=component_name
-        )
-        component = location.getComponent(component.getId())
+    def get_expected_path(self, context):
 
-        current = context.data["currentFile"].replace("\\", "/")
-        current = current.replace("//", "/")
-        expected = component.getFilesystemPath().replace("\\", "/")
-        expected = expected.replace("//", "/")
-        msg = "Scene path is not correct. Current: \"{0}\" Expected: \"{1}\""
-        assert expected == current, msg.format(current, expected)
+        task = context.data["ftrackTask"]
+        templates = ftrack_template.discover_templates()
+        padded_version = str(context.data.get("version", 1)).zfill(3)
+        return ftrack_template.format(
+            {"padded_version": padded_version, "houdini": "houdini"},
+            templates,
+            entity=task
+        )[0]

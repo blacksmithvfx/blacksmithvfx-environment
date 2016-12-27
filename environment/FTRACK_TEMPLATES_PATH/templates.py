@@ -72,11 +72,8 @@ def register():
             "flame": {},
             "{houdini}": {
                 "hip": {
-                    assetversion: {
-                        file_component: {},
-                        sequence_component: {}
-                    }
-                },
+                    "houdini.v{padded_version}.hip": {},
+                }
             },
             "houdini": {
                 "geo": {},
@@ -87,11 +84,8 @@ def register():
             },
             "{maya}": {
                 "scenes": {
-                    assetversion: {
-                        file_component: {},
-                        sequence_component: {}
-                    }
-                },
+                    "maya.v{padded_version}.mb": {},
+                }
             },
             "maya": {
                 "assets": {},
@@ -119,17 +113,14 @@ def register():
                     "iprImages": {}
                 },
                 "scenes": {
-                    "edit": {}
+                    "edit": {},
                 },
                 "scripts": {},
                 "sound": {},
                 "sourceimages": {
                     "3dPaintTextures": {}
                 },
-                "workspace.mel": {
-                    "isfile": True,
-                    "source": workspace_file
-                }
+                "workspace.mel": {"isfile": True, "source": workspace_file},
             },
             "nuke": {}
         }
