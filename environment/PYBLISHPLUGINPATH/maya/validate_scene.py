@@ -19,6 +19,10 @@ class BlacksmithVFXMayaRepairScene(pyblish.api.Action):
             msg = "\"{0}\" already exists. Please repair manually."
             raise ValueError(msg.format(expected))
         else:
+            # Create parent directory if it doesn't exist
+            if not os.path.exists(os.path.dirname(expected)):
+                os.makedirs(os.path.dirname(expected))
+
             pymel.core.system.saveAs(expected)
 
 
