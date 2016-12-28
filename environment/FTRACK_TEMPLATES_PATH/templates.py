@@ -72,7 +72,7 @@ def register():
             "flame": {},
             "{houdini}": {
                 "hip": {
-                    "houdini.v{padded_version}.hip": {},
+                    "houdini_v{padded_version}.hip": {},
                 }
             },
             "houdini": {
@@ -84,7 +84,7 @@ def register():
             },
             "{maya}": {
                 "scenes": {
-                    "maya.v{padded_version}.mb": {},
+                    "maya_v{padded_version}.mb": {},
                 }
             },
             "maya": {
