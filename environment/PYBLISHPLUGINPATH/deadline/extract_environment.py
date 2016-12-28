@@ -7,7 +7,7 @@ class BumpyboxDeadlineExtractEnvironment(pyblish.api.InstancePlugin):
     """ Appending Ftrack enviroment variables to Deadline job. """
 
     order = pyblish.api.ExtractorOrder
-    families = ["farm"]
+    families = ["deadline"]
     label = "Environment"
 
     def process(self, instance):
@@ -31,6 +31,8 @@ class BumpyboxDeadlineExtractEnvironment(pyblish.api.InstancePlugin):
             os.environ["FTRACK_TEMPLATES_PATH"]
         )
         job_data["EnvironmentKeyValue4"] = key
+        key = "FTRACK_TASKID={0}".format(os.environ["FTRACK_TASKID"])
+        job_data["EnvironmentKeyValue5"] = key
 
         instance.data["deadlineData"] = {"job": job_data,
                                          "plugin": plugin_data}
