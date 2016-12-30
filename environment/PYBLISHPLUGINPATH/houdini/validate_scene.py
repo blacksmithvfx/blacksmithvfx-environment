@@ -41,7 +41,9 @@ class BlacksmithVFXHoudiniValidateScene(pyblish.api.ContextPlugin):
         expected = self.get_expected_path(context)
 
         # Get current scene path
-        current = os.path.abspath(context.data["currentFile"])
+        current = os.path.abspath(
+            context.data["currentFile"]
+        ).replace("\\", "/")
 
         msg = "Scene path is failed. Current: \"{0}\". Expected: \"{1}\"."
         assert current == expected, msg.format(current, expected)
@@ -55,4 +57,4 @@ class BlacksmithVFXHoudiniValidateScene(pyblish.api.ContextPlugin):
             {"padded_version": padded_version, "houdini": "houdini"},
             templates,
             entity=task
-        )[0]
+        )[0].replace("\\", "/")
