@@ -1,7 +1,7 @@
 import pyblish.api as api
 
 
-class BlacksmithDeadlineExtractDefaultHoudiniParameters(api.InstancePlugin):
+class BlacksmithDeadlineExtractDefaultParameters(api.InstancePlugin):
     """ Extracts a default value for Pool.
 
     Negative offset to come before BumpyboxDeadlineExtractHoudini.
@@ -10,7 +10,6 @@ class BlacksmithDeadlineExtractDefaultHoudiniParameters(api.InstancePlugin):
     order = api.ExtractorOrder - 0.1
     label = "Default Parameters"
     families = ["deadline"]
-    hosts = ["houdini"]
 
     def process(self, instance):
 
