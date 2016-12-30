@@ -1,9 +1,12 @@
 import os
 
 import pyblish.api
+import pyblish_bumpybox
+import pyblish_ftrack
+import pyblish_deadline
 
 
-class BumpyboxDeadlineExtractEnvironment(pyblish.api.InstancePlugin):
+class BlacksmithDeadlineExtractEnvironment(pyblish.api.InstancePlugin):
     """ Appending Ftrack enviroment variables to Deadline job. """
 
     order = pyblish.api.ExtractorOrder
@@ -33,6 +36,36 @@ class BumpyboxDeadlineExtractEnvironment(pyblish.api.InstancePlugin):
         job_data["EnvironmentKeyValue4"] = key
         key = "FTRACK_TASKID={0}".format(os.environ["FTRACK_TASKID"])
         job_data["EnvironmentKeyValue5"] = key
+
+        # OnJobFinished
+        paths = os.path.join(
+            os.path.dirname(pyblish_bumpybox.__file__),
+            "plugins",
+            "deadline",
+            "OnJobFinished"
+        )
+        paths += os.pathsep
+        paths += os.path.join(
+            os.path.dirname(pyblish_ftrack.__file__), "plugins"
+        )
+        paths += os.pathsep
+        paths += os.path.join(os.path.dirname(__file__), "OnJobFinished")
+        key = "OnJobFinishedPaths={0}".format(paths)
+        job_data["EnvironmentKeyValue6"] = key
+
+        # OnJobSubmitted
+        paths = os.path.join(
+            os.path.dirname(pyblish_bumpybox.__file__),
+            "plugins",
+            "deadline",
+            "OnJobSubmitted"
+        )
+        paths += os.pathsep
+        paths += os.path.join(
+            os.path.dirname(pyblish_deadline.__file__), "plugins"
+        )
+        key = "OnJobSubmittedPaths={0}".format(paths)
+        job_data["EnvironmentKeyValue7"] = key
 
         instance.data["deadlineData"] = {"job": job_data,
                                          "plugin": plugin_data}
