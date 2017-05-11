@@ -23,7 +23,7 @@ class BlacksmithVFXNukeRepairScene(pyblish.api.Action):
             if not os.path.exists(os.path.dirname(expected)):
                 os.makedirs(os.path.dirname(expected))
 
-            nuke.scriptSave(expected)
+            nuke.scriptSaveAs(expected)
 
 
 class BlacksmithVFXNukeValidateScene(pyblish.api.ContextPlugin):
