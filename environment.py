@@ -25,6 +25,24 @@ env["PYTHONPATH"] = [
     ),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-template"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-locations"),
+    os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-nuke"),
+]
+
+# NUKE_PATH
+env["NUKE_PATH"] = [
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "pyblish-nuke",
+        "pyblish_nuke",
+        "nuke_path"
+    ),
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "pyblish-bumpybox",
+        "pyblish_bumpybox",
+        "environment_variables",
+        "nuke_path"
+    )
 ]
 
 # HOUDINI_PATH
@@ -51,6 +69,7 @@ paths = [
     os.path.join(root, "environment", "PYBLISHPLUGINPATH", "houdini"),
     os.path.join(root, "environment", "PYBLISHPLUGINPATH", "ftrack"),
     os.path.join(root, "environment", "PYBLISHPLUGINPATH", "deadline"),
+    os.path.join(root, "environment", "PYBLISHPLUGINPATH", "nuke"),
     os.path.join(
         os.environ["CONDA_GIT_REPOSITORY"],
         "pyblish-deadline",

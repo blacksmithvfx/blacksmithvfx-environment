@@ -122,7 +122,11 @@ def register():
                 },
                 "workspace.mel": {"isfile": True, "source": workspace_file},
             },
-            "nuke": {}
+            "{nuke}": {
+                "scripts": {
+                    "nuke_v{padded_version}.nk": {},
+                }
+            },
         }
     }
 
