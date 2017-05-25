@@ -42,7 +42,8 @@ env["NUKE_PATH"] = [
         "pyblish_bumpybox",
         "environment_variables",
         "nuke_path"
-    )
+    ),
+    os.path.join(root, "environment", "NUKE_PATH")
 ]
 
 # HOUDINI_PATH
@@ -62,63 +63,6 @@ env["HOUDINI_PATH"] = [
     ),
     "&"
 ]
-
-# PYBLISHPLUGINPATH
-paths = [
-    os.path.join(root, "environment", "PYBLISHPLUGINPATH", "maya"),
-    os.path.join(root, "environment", "PYBLISHPLUGINPATH", "houdini"),
-    os.path.join(root, "environment", "PYBLISHPLUGINPATH", "ftrack"),
-    os.path.join(root, "environment", "PYBLISHPLUGINPATH", "deadline"),
-    os.path.join(root, "environment", "PYBLISHPLUGINPATH", "nuke"),
-    os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"],
-        "pyblish-deadline",
-        "pyblish_deadline",
-        "plugins"
-    ),
-    os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"],
-        "pyblish-ftrack",
-        "pyblish_ftrack",
-        "plugins"
-    ),
-    os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"],
-        "pyblish-bumpybox",
-        "pyblish_bumpybox",
-        "plugins"
-    ),
-    os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"],
-        "pyblish-bumpybox",
-        "pyblish_bumpybox",
-        "plugins",
-        "deadline"
-    ),
-    os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"],
-        "pyblish-bumpybox",
-        "pyblish_bumpybox",
-        "plugins",
-        "maya"
-    ),
-    os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"],
-        "pyblish-bumpybox",
-        "pyblish_bumpybox",
-        "plugins",
-        "houdini"
-    ),
-    os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"],
-        "pyblish-bumpybox",
-        "pyblish_bumpybox",
-        "plugins",
-        "ftrack"
-    ),
-]
-
-env["PYBLISHPLUGINPATH"] = paths
 
 # FTRACK_TEMPLATES_PATH
 paths = [os.path.join(root, "environment", "FTRACK_TEMPLATES_PATH")]
