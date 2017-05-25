@@ -12,23 +12,23 @@ dependencies:
   - arrow
   - riffle
 - git:
-  - https://bitbucket.org/tokejepsen/QtExt.git@34f785b32161d0c7006706ab5ca12763ad6d662e
+  - https://bitbucket.org/tokejepsen/QtExt.git@f88d1db8d5b7a0f5162f29a0701166d3be24fd19
   - https://bitbucket.org/ftrack/ftrack-connect.git@64b062c0b6b86ba45225878f154f0e04180cbfe1
-  - https://bitbucket.org/tokejepsen/ftrack-connect-maya.git@4487fa733768a90d3a831d4570a8606c4a3d1556
+  - https://bitbucket.org/tokejepsen/ftrack-connect-maya.git@a3357544ab4986f7fcab45b05b74e669d987ea1f
   - https://bitbucket.org/ftrack/ftrack-connect-foundry.git@4a5323c453855ff909b7ba6b7ce8ac43617977a2
   - https://bitbucket.org/ftrack/ftrack-connect-nuke.git@4cff90b9c5e75469c3867baf031405d8dbdfdca6
-  - https://github.com/tokejepsen/ftrack-hooks.git@4be9b4696416a77bfc1a91b9bc029d64cf492d99
+  - https://github.com/tokejepsen/ftrack-hooks.git@129a010fba0fd39fa146261d1d73f8b3d2380718
   - https://github.com/tokejepsen/ftrack-locations.git@eccb7fca95db6d039906aa6f2da0c65f012c4838
   - https://github.com/tokejepsen/ftrack-template.git@825e29b1a81a65a38fc56f4e5b744b23a79e72df
-  - https://github.com/pyblish/pyblish-base.git@6dc5781d6bb7b97fb7bc9df268f59e24a477c272
-  - https://github.com/bumpybox/pyblish-bumpybox.git@b5b28c0a4769078d78c775dfd1612aa11f556ce5
-  - https://github.com/tokejepsen/pyblish-deadline.git@7f71d67b56e1e5fb19bdef3207ac87ffc07937c1
-  - https://github.com/tokejepsen/pyblish-ftrack.git@f9d5c7b02607ed86ded0532136b4c743581534bf
+  - https://github.com/pyblish/pyblish-base.git@9a3d78772f73e5905c131f9431cc3a266b23cbf7
+  - https://github.com/bumpybox/pyblish-bumpybox.git@e4eb3fa7a96e7cfcb7fc9f80d954064f5b6caa6f
+  - https://github.com/tokejepsen/pyblish-deadline.git@cdcdb8408cec5e132342f94aa7191e0ed64ecfdd
+  - https://github.com/tokejepsen/pyblish-ftrack.git@f6ca9d7135491ae719f00cbf87261904b37b5ac6
   - https://github.com/pyblish/pyblish-houdini.git@88b189a82fd6b757aa7557c1c490b97e740154a5
-  - https://github.com/tokejepsen/pyblish-lite.git@543a64d4d6f6d6ce425a52b9eba8969b8e896366
-  - https://github.com/pyblish/pyblish-maya.git@93651557bb62d3f367d3ec753b7b832398373888
+  - https://github.com/tokejepsen/pyblish-lite.git@b50a7fc9b755c7986d88b06e17cf5494097cefa0
+  - https://github.com/pyblish/pyblish-maya.git@b81e6edd67e9969348a133c8a6e630ab92fd6c3f
   - https://github.com/pyblish/pyblish-nuke.git@061de849f501063ad92c532b764847c8883061d7
-  - https://github.com/tokejepsen/ftrack-connect-environment.git@275f7af2933b488fa2c60ef61ab1984be389714c:
+  - https://github.com/tokejepsen/ftrack-connect-environment.git@3c71b345f1732979364b27b714f898a43ddc20a6:
     - python $REPO_PATH/environment.py
   - https://github.com/tokejepsen/blacksmithvfx-environment.git:
     - python $REPO_PATH/environment.py
