@@ -103,6 +103,7 @@ def get_task_data(event):
             if app_id == "nuke":
                 subprocess.call([
                     event["data"]["application"]["path"],
+                    "-i",
                     "-t",
                     os.path.abspath(
                         os.path.join(
