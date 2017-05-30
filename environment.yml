@@ -22,7 +22,7 @@ dependencies:
   - https://github.com/tokejepsen/ftrack-template.git@825e29b1a81a65a38fc56f4e5b744b23a79e72df
   - https://github.com/pyblish/pyblish-base.git@9a3d78772f73e5905c131f9431cc3a266b23cbf7
   - https://github.com/pyblish/pyblish-standalone.git@0f279c0e08f4c99bd6e5ef954452835e01e2ee61
-  - https://github.com/bumpybox/pyblish-bumpybox.git@67595f9e3690874d2b0ce87b489d70c66021a66c
+  - https://github.com/bumpybox/pyblish-bumpybox.git@6db393104c767429c02a1487f15a776d89eea766
   - https://github.com/tokejepsen/pyblish-deadline.git@cdcdb8408cec5e132342f94aa7191e0ed64ecfdd
   - https://github.com/tokejepsen/pyblish-ftrack.git@f6ca9d7135491ae719f00cbf87261904b37b5ac6
   - https://github.com/pyblish/pyblish-houdini.git@88b189a82fd6b757aa7557c1c490b97e740154a5
