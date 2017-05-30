@@ -3,7 +3,7 @@ import os
 import pyblish.api as api
 
 
-class BumpyboxEnvironmentDeadlineExtract(api.InstancePlugin):
+class BlacksmithEnvironmentDeadlineExtract(api.InstancePlugin):
     """ Add Bumpybox specific submission parameters. """
 
     order = api.ExtractorOrder

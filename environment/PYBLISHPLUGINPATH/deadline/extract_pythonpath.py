@@ -5,7 +5,7 @@ import pyblish.api as api
 from dirsync import sync
 
 
-class BumpyboxEnvironmentDeadlineExtractPYTHONPATH(api.InstancePlugin):
+class BlacksmithEnvironmentDeadlineExtractPYTHONPATH(api.InstancePlugin):
     """ Add event script for updating Ftrack status. """
 
     order = api.ExtractorOrder
