@@ -98,7 +98,11 @@ def get_task_data(event):
         if publish_file:
             shutil.copy(publish_file, work_file)
         else:
-            os.environ["FTRACK_TASKID"] = task["id"]
+
+            # Create parent directory if it doesn't exist
+            if not os.path.exists(os.path.dirname(work_file)):
+                os.makedirs(os.path.dirname(work_file))
+
             # Call Nuke terminal to create an empty work file
             if app_id == "nuke":
                 subprocess.call([
@@ -109,33 +113,40 @@ def get_task_data(event):
                         os.path.join(
                             os.path.dirname(__file__), "..", "nuke_save.py"
                         )
-                    )
+                    ),
+                    work_file
                 ])
             # Call Mayapy terminal to create an empty work file
             if app_id == "maya":
-                subprocess.call([
-                    os.path.join(
-                        os.path.dirname(event["data"]["application"]["path"]),
-                        "mayapy.exe"
-                    ),
-                    os.path.abspath(
+                subprocess.call(
+                    [
                         os.path.join(
-                            os.path.dirname(__file__), "..", "maya_save.py"
-                        )
-                    )
-                ])
+                            os.path.dirname(
+                                event["data"]["application"]["path"]
+                            ),
+                            "mayapy.exe"
+                        ),
+                        os.path.abspath(
+                            os.path.join(
+                                os.path.dirname(__file__), "..", "maya_save.py"
+                            )
+                        ),
+                        work_file
+                    ]
+                )
             # Call hypthon terminal to create an empty work file
             if app_id == "houdini":
                 subprocess.call([
                     os.path.join(
                         os.path.dirname(event["data"]["application"]["path"]),
-                        "hython.exe"
+                        "hython2.7.exe"
                     ),
                     os.path.abspath(
                         os.path.join(
                             os.path.dirname(__file__), "..", "houdini_save.py"
                         )
-                    )
+                    ),
+                    work_file
                 ])
     else:  # If work file exists check to see if it needs to be versioned up
         old_api_task = ftrack.Task(data["context"]["selection"][0]["entityId"])

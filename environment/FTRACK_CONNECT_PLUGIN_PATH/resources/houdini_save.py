@@ -1,9 +1,9 @@
 import sys
 
-import nuke
+import hou
 
 
 path = sys.argv[1]
 
 print "Saving workfile to: \"{0}\"".format(path)
-nuke.scriptSaveAs(path)
+hou.hipFile.save(file_name=path)
