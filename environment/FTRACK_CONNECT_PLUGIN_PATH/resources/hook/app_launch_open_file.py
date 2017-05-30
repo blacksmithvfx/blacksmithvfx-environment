@@ -42,6 +42,14 @@ def get_task_data(event):
     )
     work_area = os.path.dirname(work_file)
 
+    # Pyblish
+    if app_id == "pyblish":
+        task_area, template = ftrack_template.format(
+            {}, templates, entity=task
+        )
+        data["command"].extend(["--path", task_area])
+        return data
+
     # Finding existing work files
     if os.path.exists(work_area):
         max_version = 0
