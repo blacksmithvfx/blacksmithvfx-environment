@@ -1,5 +1,6 @@
 import os
 import platform
+import copy
 
 import ftrack_template
 
@@ -41,7 +42,7 @@ def register():
     mount = (
         "{#project.disk." + system_name + "}/{#project.root}/{#project.name}"
     )
-    task = "{#task.name}"
+    task = "{#task.type.name}"
     tasks = "Tasks/" + task
     assetversion = "{#assetversion.asset.type.short}/v{#assetversion.version}"
     file_component = "{#component.name}{#component.file_type}"
@@ -61,6 +62,11 @@ def register():
     workspace_file = os.path.join(os.path.dirname(__file__), "workspace.mel")
 
     # Structures
+    work_file_name = "{#task.type.name}_{#task.name}"
+    work_file_name += "_v{padded_version}"
+    houdini_work_file = work_file_name + ".hip"
+    maya_work_file = work_file_name + ".mb"
+    nuke_work_file = work_file_name + ".nk"
     task_structure = {
         "Publish": {
             assetversion: {
@@ -72,7 +78,7 @@ def register():
             "flame": {},
             "{houdini}": {
                 "hip": {
-                    "houdini_v{padded_version}.hip": {},
+                    houdini_work_file: {},
                 }
             },
             "houdini": {
@@ -84,7 +90,7 @@ def register():
             },
             "{maya}": {
                 "scenes": {
-                    "maya_v{padded_version}.mb": {},
+                    maya_work_file: {},
                 }
             },
             "maya": {
@@ -124,11 +130,35 @@ def register():
             },
             "{nuke}": {
                 "scripts": {
-                    "nuke_v{padded_version}.nk": {},
+                    nuke_work_file: {},
                 }
             },
         }
     }
+
+    shot_task_structure = copy.deepcopy(task_structure)
+    work_file = "{#shot.name}_" + work_file_name + ".hip"
+    shot_task_structure["Work"]["{houdini}"]["hip"] = {work_file: {}}
+    work_file = "{#shot.name}_" + work_file_name + ".mb"
+    shot_task_structure["Work"]["{maya}"]["scenes"] = {work_file: {}}
+    work_file = "{#shot.name}_" + work_file_name + ".nk"
+    shot_task_structure["Work"]["{nuke}"]["scripts"] = {work_file: {}}
+
+    sequence_task_structure = copy.deepcopy(task_structure)
+    work_file = "{#sequence.name}_" + work_file_name + ".hip"
+    sequence_task_structure["Work"]["{houdini}"]["hip"] = {work_file: {}}
+    work_file = "{#sequence.name}_" + work_file_name + ".mb"
+    sequence_task_structure["Work"]["{maya}"]["scenes"] = {work_file: {}}
+    work_file = "{#sequence.name}_" + work_file_name + ".nk"
+    sequence_task_structure["Work"]["{nuke}"]["scripts"] = {work_file: {}}
+
+    sequence_shot_task_structure = copy.deepcopy(shot_task_structure)
+    work_file = "{#sequence.name}_{#shot.name}_" + work_file_name + ".hip"
+    sequence_shot_task_structure["Work"]["{houdini}"]["hip"] = {work_file: {}}
+    work_file = "{#sequence.name}_{#shot.name}_" + work_file_name + ".mb"
+    sequence_shot_task_structure["Work"]["{maya}"]["scenes"] = {work_file: {}}
+    work_file = "{#sequence.name}_{#shot.name}_" + work_file_name + ".nk"
+    sequence_shot_task_structure["Work"]["{nuke}"]["scripts"] = {work_file: {}}
 
     project_structure = {
         mount: {
@@ -170,20 +200,20 @@ def register():
                 task: task_structure
             },
             shots: {
-                task: task_structure,
+                task: shot_task_structure,
                 assets: {
-                    task: task_structure
+                    task: shot_task_structure
                 },
             },
             sequences: {
-                task: task_structure,
+                task: sequence_task_structure,
                 assets: {
-                    task: task_structure
+                    task: sequence_task_structure
                 },
                 shot: {
-                    task: task_structure,
+                    task: sequence_shot_task_structure,
                     assets: {
-                        task: task_structure
+                        task: sequence_shot_task_structure
                     }
                 }
             },
