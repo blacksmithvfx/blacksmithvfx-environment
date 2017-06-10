@@ -48,6 +48,7 @@ env["NUKE_PATH"] = [
 ]
 
 # HOUDINI_PATH
+# NOTE: Houdini's env file in the users directory, does not like backslashes
 env["HOUDINI_PATH"] = [
     os.path.join(
         os.environ["CONDA_GIT_REPOSITORY"],
@@ -55,13 +56,13 @@ env["HOUDINI_PATH"] = [
         "pyblish_bumpybox",
         "environment_variables",
         "houdini_path"
-    ),
+    ).replace("\\", "/"),
     os.path.join(
         os.environ["CONDA_GIT_REPOSITORY"],
         "pyblish-houdini",
         "pyblish_houdini",
         "houdini_path"
-    ),
+    ).replace("\\", "/"),
     "&"
 ]
 
