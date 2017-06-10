@@ -83,7 +83,9 @@ def register():
             },
             "houdini": {
                 "geo": {},
-                "hip": {},
+                "hip": {
+                    "workspace": {}
+                },
                 "render": {},
                 "sim": {},
                 "tex": {},
@@ -120,6 +122,7 @@ def register():
                 },
                 "scenes": {
                     "edit": {},
+                    "workspace": {}
                 },
                 "scripts": {},
                 "sound": {},
@@ -132,6 +135,11 @@ def register():
                 "scripts": {
                     nuke_work_file: {},
                 }
+            },
+            "nuke": {
+                "scripts": {
+                    "workspace": {}
+                },
             },
         }
     }
