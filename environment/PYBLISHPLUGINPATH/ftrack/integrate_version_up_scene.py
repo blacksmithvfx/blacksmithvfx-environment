@@ -14,6 +14,7 @@ class BlacksmithFtrackIntegrateVersionUpScene(pyblish.api.ContextPlugin):
     label = "Version Up Scene"
     families = ["img"]
     hosts = ["nuke"]
+    optional = True
 
     def process(self, context):
 
