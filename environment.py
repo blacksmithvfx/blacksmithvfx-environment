@@ -16,13 +16,6 @@ env["PYTHONPATH"] = [
         "pythonpath"
     ),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-bumpybox"),
-    os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"],
-        "pyblish-bumpybox",
-        "pyblish_bumpybox",
-        "environment_variables",
-        "pythonpath"
-    ),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-template"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-locations"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-nuke"),
@@ -37,26 +30,12 @@ env["NUKE_PATH"] = [
         "pyblish_nuke",
         "nuke_path"
     ),
-    os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"],
-        "pyblish-bumpybox",
-        "pyblish_bumpybox",
-        "environment_variables",
-        "nuke_path"
-    ),
     os.path.join(root, "environment", "NUKE_PATH")
 ]
 
 # HOUDINI_PATH
 # NOTE: Houdini's env file in the users directory, does not like backslashes
 env["HOUDINI_PATH"] = [
-    os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"],
-        "pyblish-bumpybox",
-        "pyblish_bumpybox",
-        "environment_variables",
-        "houdini_path"
-    ).replace("\\", "/"),
     os.path.join(
         os.environ["CONDA_GIT_REPOSITORY"],
         "pyblish-houdini",
