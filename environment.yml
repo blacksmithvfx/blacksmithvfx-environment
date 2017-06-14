@@ -24,13 +24,15 @@ dependencies:
   - https://github.com/pyblish/pyblish-base.git@9a3d78772f73e5905c131f9431cc3a266b23cbf7
   - https://github.com/pyblish/pyblish-standalone.git@0f279c0e08f4c99bd6e5ef954452835e01e2ee61
   - https://github.com/bumpybox/pyblish-bumpybox.git@156fcde5eb333f4495e18e9e0d3004f5af147b14
-  - https://github.com/pyblish/pyblish-deadline.git@10c1a4ff3fd4f44dc7ff34f104fa41a62adb3091
-  - https://github.com/pyblish/pyblish-ftrack.git@8a28b879e7bbcfc989c178fa1d8c0671c7ac6a8d
+  - https://github.com/pyblish/pyblish-deadline.git@cdcdb8408cec5e132342f94aa7191e0ed64ecfdd
+  - https://github.com/pyblish/pyblish-ftrack.git@f6ca9d7135491ae719f00cbf87261904b37b5ac6
   - https://github.com/pyblish/pyblish-houdini.git@88b189a82fd6b757aa7557c1c490b97e740154a5
-  - https://github.com/pyblish/pyblish-lite.git@5c9bd64bc649a1537f79682866a37258639b66a0
+  - https://github.com/pyblish/pyblish-lite.git@b50a7fc9b755c7986d88b06e17cf5494097cefa0
   - https://github.com/pyblish/pyblish-maya.git@b81e6edd67e9969348a133c8a6e630ab92fd6c3f
   - https://github.com/pyblish/pyblish-nuke.git@5ec2594cd9d987dfdb10abee59ab3044d4a08225
   - https://github.com/tokejepsen/ftrack-connect-environment.git@777a260885fda1ce9076c7f2714ae309bdaae00c:
+    - python $REPO_PATH/environment.py
+  - https://github.com/tokejepsen/pyblish-grill-environment@5ddc0422604ea9c09358daadf9d9791aa4edd3aa:
     - python $REPO_PATH/environment.py
   - https://github.com/blacksmithvfx/blacksmithvfx-environment.git:
     - python $REPO_PATH/environment.py
