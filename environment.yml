@@ -18,7 +18,7 @@ dependencies:
   - https://bitbucket.org/ftrack/ftrack-connect-nuke.git@51dfcb367c0531b413de85f6d77fabb0be90b009
   - https://bitbucket.org/ftrack/ftrack-connect-nuke-studio.git@dc5e0f3d1b971ea1e95c41a78af69a26dc68ef3a
   - https://bitbucket.org/ftrack/ftrack-connect-rv.git@2afb77536bbc2b89f987c8e0311fb63ed3d5fe32
-  - https://github.com/tokejepsen/ftrack-hooks.git@2d05480decfd04fb9cb0d335d67218bc1241f119
+  - https://github.com/tokejepsen/ftrack-hooks.git@97f1068062e2007613c56cc38531e65d7b38e473
   - https://github.com/tokejepsen/ftrack-locations.git@daa5a868b2cfd25ef49b685b328d11c72d5da2e2
   - https://github.com/tokejepsen/ftrack-template.git@825e29b1a81a65a38fc56f4e5b744b23a79e72df
   - https://github.com/pyblish/pyblish-base.git@9a3d78772f73e5905c131f9431cc3a266b23cbf7
