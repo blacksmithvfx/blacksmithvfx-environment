@@ -17,13 +17,13 @@ dependencies:
   - https://bitbucket.org/ftrack/ftrack-connect-foundry.git@f11552c0b6f2acd25a50856f5429a2ac06dd9206
   - https://bitbucket.org/ftrack/ftrack-connect-nuke.git@2d9f23ef8022b265acdea0ce8a331334f754370f
   - https://bitbucket.org/ftrack/ftrack-connect-nuke-studio.git@dc5e0f3d1b971ea1e95c41a78af69a26dc68ef3a
-  - https://bitbucket.org/ftrack/ftrack-connect-rv.git@2afb77536bbc2b89f987c8e0311fb63ed3d5fe32
-  - https://github.com/tokejepsen/ftrack-hooks.git@2ac4ce2bee1d62e3411e29c5c36706e576941939
+  - https://bitbucket.org/ftrack/ftrack-connect-rv.git@a6b571997c9a5fe79cb243347237c9b7cba3827f
+  - https://github.com/tokejepsen/ftrack-hooks.git@6c61d0fefb83b2886492f88e4cfc43416076cd82
   - https://github.com/tokejepsen/ftrack-locations.git@daa5a868b2cfd25ef49b685b328d11c72d5da2e2
   - https://github.com/tokejepsen/ftrack-template.git@825e29b1a81a65a38fc56f4e5b744b23a79e72df
   - https://github.com/pyblish/pyblish-base.git@9a3d78772f73e5905c131f9431cc3a266b23cbf7
   - https://github.com/pyblish/pyblish-standalone.git@0f279c0e08f4c99bd6e5ef954452835e01e2ee61
-  - https://github.com/bumpybox/pyblish-bumpybox.git@4fd7ab0b96f193b2fc5d9a578abe9995a4d56996
+  - https://github.com/bumpybox/pyblish-bumpybox.git@0a603be1790c7003f94a69d7326afe1a02236da7
   - https://github.com/pyblish/pyblish-deadline.git@10c1a4ff3fd4f44dc7ff34f104fa41a62adb3091
   - https://github.com/pyblish/pyblish-ftrack.git@e9f17a1d6486a9733bb875eb1064bc7103554d8b
   - https://github.com/pyblish/pyblish-houdini.git@88b189a82fd6b757aa7557c1c490b97e740154a5
@@ -32,7 +32,7 @@ dependencies:
   - https://github.com/pyblish/pyblish-nuke.git@5ec2594cd9d987dfdb10abee59ab3044d4a08225
   - https://github.com/tokejepsen/ftrack-connect-environment.git@777a260885fda1ce9076c7f2714ae309bdaae00c:
     - python $REPO_PATH/environment.py
-  - https://github.com/tokejepsen/pyblish-grill-environment@6dbc155a576af51b8086075c26129482a8f692a8:
+  - https://github.com/tokejepsen/pyblish-grill-environment@5cc11a54e1b4b570fb7952b2669ff152bbfabfe6:
     - python $REPO_PATH/environment.py
   - https://github.com/blacksmithvfx/blacksmithvfx-environment.git:
     - python $REPO_PATH/environment.py
