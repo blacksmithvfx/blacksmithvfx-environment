@@ -18,6 +18,7 @@ env["PYTHONPATH"] = [
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-bumpybox"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-template"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-locations"),
+    os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-nuke"),
     os.path.join(root, "environment", "PYTHONPATH")
 ]
