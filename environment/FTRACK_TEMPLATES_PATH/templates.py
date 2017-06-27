@@ -64,21 +64,23 @@ def register():
             "flame": {},
             "{houdini}": {
                 "hip": {
-                    houdini_work_file: {},
+                    "{#task.name}": {
+                        houdini_work_file: {}
+                    }
                 }
             },
             "houdini": {
                 "geo": {},
-                "hip": {
-                    "workspace": {}
-                },
+                "hip": {},
                 "render": {},
                 "sim": {},
                 "tex": {},
             },
             "{maya}": {
                 "scenes": {
-                    maya_work_file: {},
+                    "{#task.name}": {
+                        maya_work_file: {}
+                    }
                 }
             },
             "maya": {
@@ -107,8 +109,7 @@ def register():
                     "iprImages": {}
                 },
                 "scenes": {
-                    "edit": {},
-                    "workspace": {}
+                    "edit": {}
                 },
                 "scripts": {},
                 "sound": {},
@@ -119,13 +120,13 @@ def register():
             },
             "{nuke}": {
                 "scripts": {
-                    nuke_work_file: {},
+                    "{#task.name}": {
+                        nuke_work_file: {}
+                    }
                 }
             },
             "nuke": {
-                "scripts": {
-                    "workspace": {}
-                },
+                "scripts": {}
             },
         }
     }
