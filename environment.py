@@ -6,6 +6,11 @@ from conda_git_deployment import utils
 root = os.path.dirname(__file__)
 env = {}
 
+# PATH
+# Need to manually add Quicktime for Nuke, cause conda-git-deployment removes
+# it from the environment.
+env["PATH"] = ["C:/Program Files (x86)/QuickTime/QTSystem/"]
+
 # PYTHONPATH
 env["PYTHONPATH"] = [
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-maya"),
