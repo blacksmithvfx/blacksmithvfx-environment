@@ -32,7 +32,7 @@ dependencies:
   - https://github.com/pyblish/pyblish-nuke.git@5ec2594cd9d987dfdb10abee59ab3044d4a08225
   - https://github.com/tokejepsen/ftrack-connect-environment.git@777a260885fda1ce9076c7f2714ae309bdaae00c:
     - python $REPO_PATH/environment.py
-  - https://github.com/tokejepsen/pyblish-grill-environment@5cc11a54e1b4b570fb7952b2669ff152bbfabfe6:
+  - https://github.com/tokejepsen/pyblish-grill-environment@6e8cb1f99f259e4c5e70dff843e3b9ec0c24b088:
     - python $REPO_PATH/environment.py
   - https://github.com/blacksmithvfx/blacksmithvfx-environment.git:
     - python $REPO_PATH/environment.py
