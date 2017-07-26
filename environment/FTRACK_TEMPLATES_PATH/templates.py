@@ -44,12 +44,6 @@ def register():
     )
     task = "{#task.type.name}"
     tasks = "Tasks/" + task
-    assetversion = "{#assetversion.asset.type.short}/v{#assetversion.version}"
-    file_component = "{#component.name}{#component.file_type}"
-    sequence_component = (
-        "{#container.name}/{#container.name}.{#component.name}" +
-        "{#component.file_type}"
-    )
     assets = "Assets/{#assetbuild.type.name}/{#assetbuild.name}"
     shot = "{#shot.name}"
     shots = "Shots/" + shot
@@ -58,27 +52,21 @@ def register():
     episode = "{#episode.name}"
     episodes = "Episodes/" + episode
 
-    # Files included in structure
+    # Work Structure
     workspace_file = os.path.join(os.path.dirname(__file__), "workspace.mel")
-
-    # Structures
     work_file_name = "{#task.type.name}_{#task.name}"
     work_file_name += "_v{padded_version}"
     houdini_work_file = work_file_name + ".hip"
     maya_work_file = work_file_name + ".mb"
     nuke_work_file = work_file_name + ".nk"
     task_structure = {
-        "Publish": {
-            assetversion: {
-                file_component: {},
-                sequence_component: {}
-            }
-        },
         "Work": {
             "flame": {},
             "{houdini}": {
                 "hip": {
-                    houdini_work_file: {},
+                    "{#task.name}": {
+                        houdini_work_file: {}
+                    }
                 }
             },
             "houdini": {
@@ -90,7 +78,9 @@ def register():
             },
             "{maya}": {
                 "scenes": {
-                    maya_work_file: {},
+                    "{#task.name}": {
+                        maya_work_file: {}
+                    }
                 }
             },
             "maya": {
@@ -119,7 +109,7 @@ def register():
                     "iprImages": {}
                 },
                 "scenes": {
-                    "edit": {},
+                    "edit": {}
                 },
                 "scripts": {},
                 "sound": {},
@@ -130,12 +120,38 @@ def register():
             },
             "{nuke}": {
                 "scripts": {
-                    nuke_work_file: {},
+                    "{#task.name}": {
+                        nuke_work_file: {}
+                    }
                 }
+            },
+            "nuke": {
+                "scripts": {}
             },
         }
     }
 
+    # Publish structure
+    publish_path = (
+        "{#assetversion.asset.type.short}/{#asset.name}/" +
+        "v{#assetversion.version}"
+    )
+    file_component = (
+        "{#task.parent.name}_{#task.type.name}_{#component.name}_" +
+        "v{#assetversion.version}{#component.file_type}"
+    )
+    sequence_component = (
+        "{#task.parent.name}_{#task.type.name}_{#container.name}_" +
+        "v{#assetversion.version}.{#component.name}{#component.file_type}"
+    )
+    task_structure["Publish"] = {
+        publish_path: {
+            file_component: {},
+            sequence_component: {}
+        }
+    }
+
+    # Shot structure
     shot_task_structure = copy.deepcopy(task_structure)
     work_file = "{#shot.name}_" + work_file_name + ".hip"
     shot_task_structure["Work"]["{houdini}"]["hip"] = {work_file: {}}
@@ -144,6 +160,7 @@ def register():
     work_file = "{#shot.name}_" + work_file_name + ".nk"
     shot_task_structure["Work"]["{nuke}"]["scripts"] = {work_file: {}}
 
+    # Sequence structure
     sequence_task_structure = copy.deepcopy(task_structure)
     work_file = "{#sequence.name}_" + work_file_name + ".hip"
     sequence_task_structure["Work"]["{houdini}"]["hip"] = {work_file: {}}
@@ -152,6 +169,7 @@ def register():
     work_file = "{#sequence.name}_" + work_file_name + ".nk"
     sequence_task_structure["Work"]["{nuke}"]["scripts"] = {work_file: {}}
 
+    # Sequence/Shot structure
     sequence_shot_task_structure = copy.deepcopy(shot_task_structure)
     work_file = "{#sequence.name}_{#shot.name}_" + work_file_name + ".hip"
     sequence_shot_task_structure["Work"]["{houdini}"]["hip"] = {work_file: {}}
@@ -160,6 +178,27 @@ def register():
     work_file = "{#sequence.name}_{#shot.name}_" + work_file_name + ".nk"
     sequence_shot_task_structure["Work"]["{nuke}"]["scripts"] = {work_file: {}}
 
+    publish_path = (
+        "{#assetversion.asset.type.short}/{#asset.name}/" +
+        "v{#assetversion.version}"
+    )
+    file_component = (
+        "{#sequence.name}_{#task.parent.name}_{#task.type.name}_" +
+        "{#component.name}_v{#assetversion.version}{#component.file_type}"
+    )
+    sequence_component = (
+        "{#sequence.name}_{#task.parent.name}_{#task.type.name}_" +
+        "{#container.name}_v{#assetversion.version}.{#component.name}" +
+        "{#component.file_type}"
+    )
+    sequence_shot_task_structure["Publish"] = {
+        publish_path: {
+            file_component: {},
+            sequence_component: {}
+        }
+    }
+
+    # Entire structure
     project_structure = {
         mount: {
             "in": {

@@ -6,6 +6,11 @@ from conda_git_deployment import utils
 root = os.path.dirname(__file__)
 env = {}
 
+# PATH
+# Need to manually add Quicktime for Nuke, cause conda-git-deployment removes
+# it from the environment.
+env["PATH"] = ["C:/Program Files (x86)/QuickTime/QTSystem/"]
+
 # PYTHONPATH
 env["PYTHONPATH"] = [
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-maya"),
@@ -16,15 +21,9 @@ env["PYTHONPATH"] = [
         "pythonpath"
     ),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-bumpybox"),
-    os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"],
-        "pyblish-bumpybox",
-        "pyblish_bumpybox",
-        "environment_variables",
-        "pythonpath"
-    ),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-template"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-locations"),
+    os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-nuke"),
     os.path.join(root, "environment", "PYTHONPATH")
 ]
@@ -37,31 +36,18 @@ env["NUKE_PATH"] = [
         "pyblish_nuke",
         "nuke_path"
     ),
-    os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"],
-        "pyblish-bumpybox",
-        "pyblish_bumpybox",
-        "environment_variables",
-        "nuke_path"
-    ),
     os.path.join(root, "environment", "NUKE_PATH")
 ]
 
 # HOUDINI_PATH
+# NOTE: Houdini's env file in the users directory, does not like backslashes
 env["HOUDINI_PATH"] = [
-    os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"],
-        "pyblish-bumpybox",
-        "pyblish_bumpybox",
-        "environment_variables",
-        "houdini_path"
-    ),
     os.path.join(
         os.environ["CONDA_GIT_REPOSITORY"],
         "pyblish-houdini",
         "pyblish_houdini",
         "houdini_path"
-    ),
+    ).replace("\\", "/"),
     "&"
 ]
 
@@ -77,6 +63,9 @@ env["FTRACK_CONNECT_PLUGIN_PATH"] = [
     ),
     os.path.join(
         os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks", "pipeline_plugins"
+    ),
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks", "batch_create"
     ),
     os.path.join(root, "environment", "FTRACK_CONNECT_PLUGIN_PATH"),
     os.path.join(

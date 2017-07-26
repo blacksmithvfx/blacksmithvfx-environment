@@ -180,7 +180,17 @@ def get_task_data(event):
             shutil.copy(work_file, new_work_file)
             work_file = new_work_file
 
-    data["command"].append(work_file)
+    output = subprocess.check_output([
+        "python",
+        os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__), "..", "open_work_file.py"
+            )
+        ),
+        work_file
+    ])
+
+    data["command"].append(output.replace("\\", "/").splitlines()[0])
     return data
 
 
