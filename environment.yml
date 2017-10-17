@@ -12,13 +12,14 @@ dependencies:
   - arrow
   - riffle
 - git:
-  - https://bitbucket.org/ftrack/ftrack-connect.git@64b062c0b6b86ba45225878f154f0e04180cbfe1
-  - https://bitbucket.org/tokejepsen/ftrack-connect-maya.git@a3357544ab4986f7fcab45b05b74e669d987ea1f
-  - https://bitbucket.org/ftrack/ftrack-connect-foundry.git@f11552c0b6f2acd25a50856f5429a2ac06dd9206
-  - https://bitbucket.org/ftrack/ftrack-connect-nuke.git@d1b8a32bfddf71541b8ccd954198b7adda674792
-  - https://bitbucket.org/ftrack/ftrack-connect-nuke-studio.git@dc5e0f3d1b971ea1e95c41a78af69a26dc68ef3a
-  - https://bitbucket.org/ftrack/ftrack-connect-rv.git@a6b571997c9a5fe79cb243347237c9b7cba3827f
-  - https://github.com/tokejepsen/ftrack-hooks.git@6c61d0fefb83b2886492f88e4cfc43416076cd82
+  - https://bitbucket.org/ftrack/ftrack-python-legacy-api.git@97cb35a6ae98958f95e61a7925701d9e8eea375d
+  - https://bitbucket.org/ftrack/ftrack-connect.git@f2d816b4f2910dd6713f18ecb1c79a83ae50c778
+  - https://bitbucket.org/tokejepsen/ftrack-connect-maya.git@b8be453b91765347a6e1c49ee79827c71b65bb18
+  - https://bitbucket.org/ftrack/ftrack-connect-foundry.git@796931b22b0b9fbca7a43da71a473363d6f83d46
+  - https://bitbucket.org/ftrack/ftrack-connect-nuke.git@e67ca9122fc612e812d1102c3d9d0f87f1f47a87
+  - https://bitbucket.org/ftrack/ftrack-connect-nuke-studio.git@b4ec5c12187b9749a372a810a293f68ed07b07af
+  - https://bitbucket.org/ftrack/ftrack-connect-rv.git@a1810c5309312c3aa4aa7855beeda44ee798c279
+  - https://github.com/tokejepsen/ftrack-hooks.git@0d882c84ff314df4ac000cd1145e4835a1e3a2a6
   - https://github.com/tokejepsen/ftrack-locations.git@daa5a868b2cfd25ef49b685b328d11c72d5da2e2
   - https://github.com/tokejepsen/ftrack-template.git@825e29b1a81a65a38fc56f4e5b744b23a79e72df
   - https://github.com/pyblish/pyblish-base.git@9a3d78772f73e5905c131f9431cc3a266b23cbf7
@@ -30,7 +31,7 @@ dependencies:
   - https://github.com/pyblish/pyblish-lite.git@5c9bd64bc649a1537f79682866a37258639b66a0
   - https://github.com/pyblish/pyblish-maya.git@b81e6edd67e9969348a133c8a6e630ab92fd6c3f
   - https://github.com/pyblish/pyblish-nuke.git@5ec2594cd9d987dfdb10abee59ab3044d4a08225
-  - https://github.com/tokejepsen/ftrack-connect-environment.git@777a260885fda1ce9076c7f2714ae309bdaae00c:
+  - https://github.com/tokejepsen/ftrack-connect-environment.git@33f413990809081b478fcae2d655e8f79e9b3dd0:
     - python $REPO_PATH/environment.py
   - https://github.com/tokejepsen/pyblish-grill-environment@6e8cb1f99f259e4c5e70dff843e3b9ec0c24b088:
     - python $REPO_PATH/environment.py

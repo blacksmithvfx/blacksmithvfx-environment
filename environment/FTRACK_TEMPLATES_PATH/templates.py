@@ -243,6 +243,7 @@ def register():
                 assets: {
                     task: shot_task_structure
                 },
+                "Footage": {}
             },
             sequences: {
                 task: sequence_task_structure,
@@ -253,7 +254,8 @@ def register():
                     task: sequence_shot_task_structure,
                     assets: {
                         task: sequence_shot_task_structure
-                    }
+                    },
+                    "Footage": {}
                 }
             },
             episodes: {
@@ -265,7 +267,8 @@ def register():
                     task: task_structure,
                     assets: {
                         task: task_structure
-                    }
+                    },
+                    "Footage": {}
                 },
                 sequence: {
                     task: task_structure,
@@ -276,7 +279,8 @@ def register():
                         task: task_structure,
                         assets: {
                             task: task_structure
-                        }
+                        },
+                        "Footage": {}
                     }
                 },
             }

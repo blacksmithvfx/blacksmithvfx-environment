@@ -62,10 +62,10 @@ env["FTRACK_CONNECT_PLUGIN_PATH"] = [
         os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks", "djv_plugin"
     ),
     os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks", "pipeline_plugins"
+        os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks", "batch_create"
     ),
     os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks", "batch_create"
+        os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks", "create_structure"
     ),
     os.path.join(root, "environment", "FTRACK_CONNECT_PLUGIN_PATH"),
     os.path.join(
