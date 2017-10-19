@@ -80,13 +80,10 @@ def get_test_paths():
         "//disk/project_root/test_project/Assets",
 
         "//disk/project_root/test_project/Assets/Character/rat",
+
         "//disk/project_root/test_project/Assets/Character/rat/Lookdev",
         "//disk/project_root/test_project/Assets/Character/rat/Lookdev/Work/"
-        "nuke",
-        "//disk/project_root/test_project/Assets/Character/rat/Lookdev/Work/"
         "nuke/scripts",
-        "//disk/project_root/test_project/Assets/Character/rat/Lookdev/Work/"
-        "maya/sourceimages",
         "//disk/project_root/test_project/Assets/Character/rat/Lookdev/Work/"
         "maya/sourceimages/3dPaintTextures",
         "//disk/project_root/test_project/Assets/Character/rat/Lookdev/Work/"
@@ -104,8 +101,6 @@ def get_test_paths():
         "//disk/project_root/test_project/Assets/Character/rat/Lookdev/Work/"
         "maya/assets",
         "//disk/project_root/test_project/Assets/Character/rat/Lookdev/Work/"
-        "maya/cache",
-        "//disk/project_root/test_project/Assets/Character/rat/Lookdev/Work/"
         "maya/cache/bifrost",
         "//disk/project_root/test_project/Assets/Character/rat/Lookdev/Work/"
         "maya/cache/particles",
@@ -114,21 +109,15 @@ def get_test_paths():
         "//disk/project_root/test_project/Assets/Character/rat/Lookdev/Work/"
         "maya/cache/alembic",
         "//disk/project_root/test_project/Assets/Character/rat/Lookdev/Work/"
-        "maya/scenes",
-        "//disk/project_root/test_project/Assets/Character/rat/Lookdev/Work/"
         "maya/scenes/edit",
         "//disk/project_root/test_project/Assets/Character/rat/Lookdev/Work/"
         "maya/clips",
         "//disk/project_root/test_project/Assets/Character/rat/Lookdev/Work/"
         "maya/movies",
         "//disk/project_root/test_project/Assets/Character/rat/Lookdev/Work/"
-        "maya/renderData",
-        "//disk/project_root/test_project/Assets/Character/rat/Lookdev/Work/"
         "maya/renderData/iprImages",
         "//disk/project_root/test_project/Assets/Character/rat/Lookdev/Work/"
         "maya/renderData/depth",
-        "//disk/project_root/test_project/Assets/Character/rat/Lookdev/Work/"
-        "maya/renderData/fur",
         "//disk/project_root/test_project/Assets/Character/rat/Lookdev/Work/"
         "maya/renderData/fur/furFiles",
         "//disk/project_root/test_project/Assets/Character/rat/Lookdev/Work/"
@@ -141,8 +130,6 @@ def get_test_paths():
         "maya/renderData/fur/furAttrMap",
         "//disk/project_root/test_project/Assets/Character/rat/Lookdev/Work/"
         "flame",
-        "//disk/project_root/test_project/Assets/Character/rat/Lookdev/Work/"
-        "houdini",
         "//disk/project_root/test_project/Assets/Character/rat/Lookdev/Work/"
         "houdini/hip",
         "//disk/project_root/test_project/Assets/Character/rat/Lookdev/Work/"
@@ -162,7 +149,6 @@ def get_test_paths():
         "//disk/project_root/test_project/Shots/sh0010/Footage",
 
         "//disk/project_root/test_project/Shots/sh0010/Animation",
-        "//disk/project_root/test_project/Shots/sh0010/Animation/Work/nuke",
         "//disk/project_root/test_project/Shots/sh0010/Animation/Work/nuke/"
         "scripts",
         "//disk/project_root/test_project/Shots/sh0010/Animation/Work/maya/"
@@ -170,11 +156,7 @@ def get_test_paths():
         "//disk/project_root/test_project/Shots/sh0010/Animation/Work/maya/"
         "clips",
         "//disk/project_root/test_project/Shots/sh0010/Animation/Work/maya/"
-        "sourceimages",
-        "//disk/project_root/test_project/Shots/sh0010/Animation/Work/maya/"
         "sourceimages/3dPaintTextures",
-        "//disk/project_root/test_project/Shots/sh0010/Animation/Work/maya/"
-        "cache",
         "//disk/project_root/test_project/Shots/sh0010/Animation/Work/maya/"
         "cache/bifrost",
         "//disk/project_root/test_project/Shots/sh0010/Animation/Work/maya/"
@@ -184,8 +166,6 @@ def get_test_paths():
         "//disk/project_root/test_project/Shots/sh0010/Animation/Work/maya/"
         "cache/nCache",
         "//disk/project_root/test_project/Shots/sh0010/Animation/Work/maya/"
-        "scenes",
-        "//disk/project_root/test_project/Shots/sh0010/Animation/Work/maya/"
         "scenes/edit",
         "//disk/project_root/test_project/Shots/sh0010/Animation/Work/maya/"
         "autosave",
@@ -193,10 +173,6 @@ def get_test_paths():
         "particles",
         "//disk/project_root/test_project/Shots/sh0010/Animation/Work/maya/"
         "movies",
-        "//disk/project_root/test_project/Shots/sh0010/Animation/Work/maya/"
-        "renderData",
-        "//disk/project_root/test_project/Shots/sh0010/Animation/Work/maya/"
-        "renderData/fur",
         "//disk/project_root/test_project/Shots/sh0010/Animation/Work/maya/"
         "renderData/fur/furFiles",
         "//disk/project_root/test_project/Shots/sh0010/Animation/Work/maya/"
@@ -221,8 +197,6 @@ def get_test_paths():
         "assets",
         "//disk/project_root/test_project/Shots/sh0010/Animation/Work/flame",
         "//disk/project_root/test_project/Shots/sh0010/Animation/Work/"
-        "houdini",
-        "//disk/project_root/test_project/Shots/sh0010/Animation/Work/"
         "houdini/hip",
         "//disk/project_root/test_project/Shots/sh0010/Animation/Work/"
         "houdini/tex",
@@ -243,19 +217,13 @@ def get_test_paths():
 
         "//disk/project_root/test_project/Sequences/sq001/sh0010/Compositing",
         "//disk/project_root/test_project/Sequences/sq001/sh0010/Compositing"
-        "/Work/nuke",
-        "//disk/project_root/test_project/Sequences/sq001/sh0010/Compositing"
         "/Work/nuke/scripts",
         "//disk/project_root/test_project/Sequences/sq001/sh0010/Compositing"
         "/Work/maya/sound",
         "//disk/project_root/test_project/Sequences/sq001/sh0010/Compositing"
         "/Work/maya/particles",
         "//disk/project_root/test_project/Sequences/sq001/sh0010/Compositing"
-        "/Work/maya/sourceimages",
-        "//disk/project_root/test_project/Sequences/sq001/sh0010/Compositing"
         "/Work/maya/sourceimages/3dPaintTextures",
-        "//disk/project_root/test_project/Sequences/sq001/sh0010/Compositing"
-        "/Work/maya/cache",
         "//disk/project_root/test_project/Sequences/sq001/sh0010/Compositing"
         "/Work/maya/cache/bifrost",
         "//disk/project_root/test_project/Sequences/sq001/sh0010/Compositing"
@@ -265,8 +233,6 @@ def get_test_paths():
         "//disk/project_root/test_project/Sequences/sq001/sh0010/Compositing"
         "/Work/maya/cache/alembic",
         "//disk/project_root/test_project/Sequences/sq001/sh0010/Compositing"
-        "/Work/maya/scenes",
-        "//disk/project_root/test_project/Sequences/sq001/sh0010/Compositing"
         "/Work/maya/scenes/edit",
         "//disk/project_root/test_project/Sequences/sq001/sh0010/Compositing"
         "/Work/maya/autosave",
@@ -275,13 +241,9 @@ def get_test_paths():
         "//disk/project_root/test_project/Sequences/sq001/sh0010/Compositing"
         "/Work/maya/movies",
         "//disk/project_root/test_project/Sequences/sq001/sh0010/Compositing"
-        "/Work/maya/renderData",
-        "//disk/project_root/test_project/Sequences/sq001/sh0010/Compositing"
         "/Work/maya/renderData/iprImages",
         "//disk/project_root/test_project/Sequences/sq001/sh0010/Compositing"
         "/Work/maya/renderData/depth",
-        "//disk/project_root/test_project/Sequences/sq001/sh0010/Compositing"
-        "/Work/maya/renderData/fur",
         "//disk/project_root/test_project/Sequences/sq001/sh0010/Compositing"
         "/Work/maya/renderData/fur/furFiles",
         "//disk/project_root/test_project/Sequences/sq001/sh0010/Compositing"
@@ -302,8 +264,6 @@ def get_test_paths():
         "/Work/maya/assets",
         "//disk/project_root/test_project/Sequences/sq001/sh0010/Compositing"
         "/Work/flame",
-        "//disk/project_root/test_project/Sequences/sq001/sh0010/Compositing"
-        "/Work/houdini",
         "//disk/project_root/test_project/Sequences/sq001/sh0010/Compositing"
         "/Work/houdini/hip",
         "//disk/project_root/test_project/Sequences/sq001/sh0010/Compositing"
@@ -428,26 +388,152 @@ def test_project():
     return project
 
 
-def test_project_editing():
-    entities = []
-
+def test_project_task():
     project = test_project()
 
-    # project/editing
-    task = utils.mock_entity(
+    entity = utils.mock_entity(
         ("parent", project),
         ("project", project),
         ("name", "editing"),
         entity_type="Task"
     )
-    assert_entity(task)
-    entities.append(task)
+    assert_entity(entity)
 
-    return entities
+    return entity
+
+
+def test_project_folder():
+    project = test_project()
+
+    entity = utils.mock_entity(
+        ("project", project),
+        ("parent", project),
+        ("name", "Assets"),
+        entity_type="Folder"
+    )
+    assert_entity(entity)
+
+    return entity
+
+
+def test_project_folder_assetbuild():
+    project = test_project()
+    folder = test_project_folder()
+
+    assetbuildtype = utils.mock_entity(
+        ("name", "Character"),
+        entity_type="Type"
+    )
+    entity = utils.mock_entity(
+        ("project", project),
+        ("parent", folder),
+        ("name", "rat"),
+        ("type", assetbuildtype),
+        entity_type="AssetBuild"
+    )
+    assert_entity(entity)
+
+    return entity
+
+
+def test_project_folder_assetbuild_lookdev():
+    project = test_project()
+    assetbuild = test_project_folder_assetbuild()
+
+    entity = utils.mock_entity(
+        ("project", project),
+        ("parent", assetbuild),
+        ("name", "Lookdev"),
+        entity_type="Task"
+    )
+    assert_entity(entity)
+
+    return entity
+
+
+def test_project_shot():
+    project = test_project()
+
+    entity = utils.mock_entity(
+        ("project", project),
+        ("parent", project),
+        ("name", "sh0010"),
+        entity_type="Shot"
+    )
+    assert_entity(entity)
+
+    return entity
+
+
+def test_project_shot_task():
+    project = test_project()
+    shot = test_project_shot()
+
+    entity = utils.mock_entity(
+        ("project", project),
+        ("parent", shot),
+        ("name", "Animation"),
+        entity_type="Task"
+    )
+    assert_entity(entity)
+
+    return entity
+
+
+def test_project_sequence():
+    project = test_project()
+
+    entity = utils.mock_entity(
+        ("project", project),
+        ("parent", project),
+        ("name", "sq001"),
+        entity_type="Sequence"
+    )
+    assert_entity(entity)
+
+    return entity
+
+
+def test_project_sequence_shot():
+    project = test_project()
+    sequence = test_project_sequence()
+
+    entity = utils.mock_entity(
+        ("project", project),
+        ("parent", sequence),
+        ("name", "sh0010"),
+        entity_type="Shot"
+    )
+    assert_entity(entity)
+
+    return entity
+
+
+def test_project_sequence_shot_task():
+    project = test_project()
+    shot = test_project_sequence_shot()
+
+    entity = utils.mock_entity(
+        ("project", project),
+        ("parent", shot),
+        ("name", "Compositing"),
+        entity_type="Task"
+    )
+    assert_entity(entity)
+
+    return entity
 
 
 def get_entities():
     entities = []
     entities.append(test_project())
-    entities.extend(test_project_editing())
+    entities.append(test_project_task())
+    entities.append(test_project_folder())
+    entities.append(test_project_folder_assetbuild())
+    entities.append(test_project_folder_assetbuild_lookdev())
+    entities.append(test_project_shot())
+    entities.append(test_project_shot_task())
+    entities.append(test_project_sequence())
+    entities.append(test_project_sequence_shot())
+    entities.append(test_project_sequence_shot_task())
     return entities

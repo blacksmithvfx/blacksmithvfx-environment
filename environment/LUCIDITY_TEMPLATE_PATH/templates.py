@@ -47,24 +47,34 @@ class Template(lucidity.Template):
         separator:
             "[entity_type]/[entity_type]/[entity_type]"
             "Project/Asset/AssetVersion"
-        For further uniqueness the file_type data member (extension) is used
-        for components. This results in paths like this:
-            "Project/Asset/AssetVersion/FileComponent/[file_type]"
-            "Project/Asset/AssetVersion/FileComponent/.txt"
-            "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/.exr
-            /FileComponent/.exr"
+
+        The "short" data member (asset type code) is used for components. This
+        results in paths like this:
+            Project/Asset/[short]
+            Project/Asset/upload
+
+        The "file_type" data member (extension) is used for components. This
+        results in paths like this:
+            "Project/Asset/[short]/AssetVersion/FileComponent/[file_type]"
+            "Project/Asset/upload/AssetVersion/FileComponent/.txt"
         """
 
-        entity_types = []
+        path_items = []
         for entity in entities:
-            entity_types.append(entity.entity_type)
+            path_items.append(entity.entity_type)
 
             try:
-                entity_types.append(entity["file_type"])
+                if entity["type"]:
+                    path_items.append(entity["type"]["short"])
             except KeyError:
                 pass
 
-        return "/".join(entity_types)
+            try:
+                path_items.append(entity["file_type"])
+            except KeyError:
+                pass
+
+        return "/".join(path_items)
 
     def get_template_name(self, entity):
         """Convenience method for getting the template name
@@ -147,7 +157,7 @@ def register():
 
     templates = []
 
-    # project
+    # Project
     mount = "{disk." + system_name + "}/{root}/{name}"
     templates.extend([
         Template("Project", mount),
@@ -174,56 +184,127 @@ def register():
         Template("Project", mount + "/out/roto"),
     ])
 
-    # project/task
+    # Project/Task
     mount = (
         "{project.disk." + system_name + "}/{project.root}/{project.name}/"
         "Tasks/{name}"
     )
+    name = "Project/Task"
+    templates.extend(generate_task_templates(name, mount))
+
+    # Project/Folder
+    mount = (
+        "{project.disk." + system_name + "}/{project.root}/{project.name}/"
+        "{name}"
+    )
     templates.extend([
-        Template("Project/Task", mount),
-        Template("Project/Task", mount + "/Work/nuke/scripts"),
-        Template(
-            "Project/Task", mount + "/Work/maya/sourceimages/3dPaintTextures"
-        ),
-        Template("Project/Task", mount + "/Work/maya/autosave"),
-        Template("Project/Task", mount + "/Work/maya/scripts"),
-        Template("Project/Task", mount + "/Work/maya/images"),
-        Template("Project/Task", mount + "/Work/maya/data"),
-        Template("Project/Task", mount + "/Work/maya/sound"),
-        Template("Project/Task", mount + "/Work/maya/particles"),
-        Template("Project/Task", mount + "/Work/maya/assets"),
-        Template("Project/Task", mount + "/Work/maya/cache/bifrost"),
-        Template("Project/Task", mount + "/Work/maya/cache/particles"),
-        Template("Project/Task", mount + "/Work/maya/cache/nCache"),
-        Template("Project/Task", mount + "/Work/maya/cache/alembic"),
-        Template("Project/Task", mount + "/Work/maya/scenes/edit"),
-        Template("Project/Task", mount + "/Work/maya/clips"),
-        Template("Project/Task", mount + "/Work/maya/movies"),
-        Template("Project/Task", mount + "/Work/maya/renderData/iprImages"),
-        Template("Project/Task", mount + "/Work/maya/renderData/depth"),
-        Template("Project/Task", mount + "/Work/maya/renderData/fur/furFiles"),
-        Template(
-            "Project/Task", mount + "/Work/maya/renderData/fur/furImages"
-        ),
-        Template(
-            "Project/Task", mount + "/Work/maya/renderData/fur/furShadowMap"
-        ),
-        Template(
-            "Project/Task", mount + "/Work/maya/renderData/fur/furEqualMap"
-        ),
-        Template(
-            "Project/Task", mount + "/Work/maya/renderData/fur/furAttrMap"
-        ),
-        Template("Project/Task", mount + "/Work/flame"),
-        Template("Project/Task", mount + "/Work/houdini/hip"),
-        Template("Project/Task", mount + "/Work/houdini/tex"),
-        Template("Project/Task", mount + "/Work/houdini/geo"),
-        Template("Project/Task", mount + "/Work/houdini/sim"),
-        Template("Project/Task", mount + "/Work/houdini/render"),
-        Template("Project/Task", mount + "/Publish"),
+        Template("Project/Folder", mount),
     ])
 
-    template = Template("Project/Task", mount + "/Work/maya/workspace.mel")
+    # Project/Folder/AssetBuild
+    mount = (
+        "{project.disk." + system_name + "}/{project.root}/{project.name}/"
+        "{parent.name}/{type.name}/{name}"
+    )
+    templates.extend([
+        Template("Project/Folder/AssetBuild", mount),
+    ])
+
+    # Project/Folder/AssetBuild/Task
+    mount = (
+        "{project.disk." + system_name + "}/{project.root}/{project.name}/"
+        "{parent.parent.name}/{parent.type.name}/{parent.name}/{name}"
+    )
+    name = "Project/Folder/AssetBuild/Task"
+    templates.extend(generate_task_templates(name, mount))
+
+    # Project/Shot
+    mount = (
+        "{project.disk." + system_name + "}/{project.root}/{project.name}/"
+        "/Shots/{name}"
+    )
+    name = "Project/Shot"
+    templates.append(Template(name, mount))
+    templates.append(Template(name, mount + "/Footage"))
+
+    # Project/Shot/Task
+    mount = (
+        "{project.disk." + system_name + "}/{project.root}/{project.name}/"
+        "/Shots/{parent.name}/{name}"
+    )
+    name = "Project/Shot/Task"
+    templates.extend(generate_task_templates(name, mount))
+
+    # Project/Sequence
+    mount = (
+        "{project.disk." + system_name + "}/{project.root}/{project.name}/"
+        "/Sequences/{name}"
+    )
+    name = "Project/Sequence"
+    templates.append(Template(name, mount))
+
+    # Project/Sequence/Shot
+    mount = (
+        "{project.disk." + system_name + "}/{project.root}/{project.name}/"
+        "/Sequences/{parent.name}/{name}"
+    )
+    name = "Project/Sequence/Shot"
+    templates.append(Template(name, mount))
+    templates.append(Template(name, mount + "/Footage"))
+
+    # Project/Sequence/Shot/Task
+    mount = (
+        "{project.disk." + system_name + "}/{project.root}/{project.name}/"
+        "/Sequences/{parent.parent.name}/{parent.name}/{name}"
+    )
+    name = "Project/Sequence/Shot/Task"
+    templates.extend(generate_task_templates(name, mount))
+
+    return templates
+
+
+def generate_task_templates(name, mount):
+
+    templates = []
+
+    task_directories = [
+        "/Work/maya/sourceimages/3dPaintTextures",
+        "/Work/nuke/scripts",
+        "/Work/maya/autosave",
+        "/Work/maya/scripts",
+        "/Work/maya/images",
+        "/Work/maya/data",
+        "/Work/maya/sound",
+        "/Work/maya/particles",
+        "/Work/maya/assets",
+        "/Work/maya/cache/bifrost",
+        "/Work/maya/cache/particles",
+        "/Work/maya/cache/nCache",
+        "/Work/maya/cache/alembic",
+        "/Work/maya/scenes/edit",
+        "/Work/maya/clips",
+        "/Work/maya/movies",
+        "/Work/maya/renderData/iprImages",
+        "/Work/maya/renderData/depth",
+        "/Work/maya/renderData/fur/furFiles",
+        "/Work/maya/renderData/fur/furImages",
+        "/Work/maya/renderData/fur/furShadowMap",
+        "/Work/maya/renderData/fur/furEqualMap",
+        "/Work/maya/renderData/fur/furAttrMap",
+        "/Work/flame",
+        "/Work/houdini/hip",
+        "/Work/houdini/tex",
+        "/Work/houdini/geo",
+        "/Work/houdini/sim",
+        "/Work/houdini/render",
+        "/Publish",
+    ]
+
+    templates.append(Template(name, mount))
+    for directory in task_directories:
+        templates.append(Template(name, mount + directory))
+
+    template = Template(name, mount + "/Work/maya/workspace.mel")
     template.source = os.path.join(os.path.dirname(__file__), "workspace.mel")
     templates.append(template)
 
