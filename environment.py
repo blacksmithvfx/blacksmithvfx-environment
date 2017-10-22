@@ -1,5 +1,6 @@
 import os
 
+import psutil
 from conda_git_deployment import utils
 
 
@@ -90,5 +91,14 @@ env["FTRACK_EVENT_PLUGIN_PATH"] = [
 env["FTRACK_LOCATIONS_MODULE"] = [
     os.environ.get("FTRACK_LOCATIONS_MODULE", "ftrack_template_disk")
 ]
+
+# Kill existing ftrack_connects
+for proc in psutil.process_iter():
+    try:
+        if "ftrack_connect" in proc.cmdline():
+            proc.kill()
+    except psutil.AccessDenied:
+        # Some process does not allow you to get "cmdline()"
+        pass
 
 utils.write_environment(env)
