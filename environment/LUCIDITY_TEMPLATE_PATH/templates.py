@@ -190,7 +190,7 @@ def register():
         "Tasks/{name}"
     )
     name = "Project/Task"
-    templates.extend(generate_task_templates(name, mount))
+    templates.extend(generate_task_templates(name, mount, ""))
 
     # Project/Folder
     mount = (
@@ -216,7 +216,7 @@ def register():
         "{parent.parent.name}/{parent.type.name}/{parent.name}/{name}"
     )
     name = "Project/Folder/AssetBuild/Task"
-    templates.extend(generate_task_templates(name, mount))
+    templates.extend(generate_task_templates(name, mount, ""))
 
     # Project/Shot
     mount = (
@@ -233,7 +233,7 @@ def register():
         "/Shots/{parent.name}/{name}"
     )
     name = "Project/Shot/Task"
-    templates.extend(generate_task_templates(name, mount))
+    templates.extend(generate_task_templates(name, mount, "{parent.name}_"))
 
     # Project/Sequence
     mount = (
@@ -242,6 +242,14 @@ def register():
     )
     name = "Project/Sequence"
     templates.append(Template(name, mount))
+
+    # Project/Sequence/Task
+    mount = (
+        "{project.disk." + system_name + "}/{project.root}/{project.name}/"
+        "/Sequences/{parent.name}/{name}"
+    )
+    name = "Project/Sequence/Task"
+    templates.extend(generate_task_templates(name, mount, "{parent.name}_"))
 
     # Project/Sequence/Shot
     mount = (
@@ -258,15 +266,20 @@ def register():
         "/Sequences/{parent.parent.name}/{parent.name}/{name}"
     )
     name = "Project/Sequence/Shot/Task"
-    templates.extend(generate_task_templates(name, mount))
+    templates.extend(
+        generate_task_templates(
+            name, mount, "{parent.parent.name}_{parent.name}_"
+        )
+    )
 
     return templates
 
 
-def generate_task_templates(name, mount):
+def generate_task_templates(name, mount, parents_pattern):
 
     templates = []
 
+    # Directories
     task_directories = [
         "/Work/maya/sourceimages/3dPaintTextures",
         "/Work/nuke/scripts",
@@ -307,5 +320,24 @@ def generate_task_templates(name, mount):
     template = Template(name, mount + "/Work/maya/workspace.mel")
     template.source = os.path.join(os.path.dirname(__file__), "workspace.mel")
     templates.append(template)
+
+    # Work files
+    templates.extend([
+        Template(
+            name + "/.hip",
+            mount + "/Work/houdini/hip/" + parents_pattern +
+            "{type.name}_{name}_v{version}{file_type}"
+        ),
+        Template(
+            name + "/.mb",
+            mount + "/Work/maya/scenes/" + parents_pattern +
+            "{type.name}_{name}_v{version}{file_type}"
+        ),
+        Template(
+            name + "/.nk",
+            mount + "/Work/nuke/scripts/" + parents_pattern +
+            "{type.name}_{name}_v{version}{file_type}"
+        ),
+    ])
 
     return templates
