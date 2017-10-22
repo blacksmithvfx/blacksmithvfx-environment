@@ -11,6 +11,7 @@ dependencies:
   - pyperclip
   - arrow
   - riffle
+  - psutil
 - git:
   - https://bitbucket.org/ftrack/ftrack-python-legacy-api.git@97cb35a6ae98958f95e61a7925701d9e8eea375d
   - https://bitbucket.org/ftrack/ftrack-connect.git@f2d816b4f2910dd6713f18ecb1c79a83ae50c778
