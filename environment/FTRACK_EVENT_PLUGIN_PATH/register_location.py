@@ -8,9 +8,7 @@ def configure_locations(event):
 
     # Find location(s) and customise instances.
     location = ftrack_locations.get_new_location(session)
-    ftrack_api.mixin(
-        location, ftrack_api.entity.location.UnmanagedLocationMixin
-    )
+    location.priority = 50
 
 
 def register(session):
