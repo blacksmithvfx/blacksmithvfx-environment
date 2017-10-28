@@ -2,6 +2,7 @@ import os
 import platform
 
 import lucidity
+from blacksmithvfx_environment import utils
 
 
 class Template(lucidity.Template):
@@ -192,6 +193,50 @@ def register():
     name = "Project/Task"
     templates.extend(generate_task_templates(name, mount, ""))
 
+    file_mount = (
+        "{version.task.project.disk." + system_name + "}/"
+        "{version.task.project.root}/"
+        "{version.task.project.name}/"
+        "Tasks/"
+        "{version.task.name}/"
+        "Publish/"
+        "{version.asset.type.short}/"
+        "{version.asset.name}/"
+        "v{version.version}/"
+        "{version.task.name}_{name}_v{version.version}{file_type}"
+    )
+    container_mount = (
+        "{version.task.project.disk." + system_name + "}/"
+        "{version.task.project.root}/"
+        "{version.task.project.name}/"
+        "Tasks/"
+        "{version.task.name}/"
+        "Publish/"
+        "{version.asset.type.short}/"
+        "{version.asset.name}/"
+        "v{version.version}/"
+        "{version.task.name}_{name}_v{version.version}.%{padding}d"
+        "{file_type}"
+    )
+    container_file_mount = (
+        "{container.version.task.project.disk." + system_name + "}/"
+        "{container.version.task.project.root}/"
+        "{container.version.task.project.name}/"
+        "Tasks/"
+        "{container.version.task.name}/"
+        "Publish/"
+        "{container.version.asset.type.short}/"
+        "{container.version.asset.name}/"
+        "v{container.version.version}/"
+        "{container.version.task.name}_{container.name}_"
+        "v{container.version.version}.{name}{file_type}"
+    )
+    templates.extend(
+        generate_file_templates(
+            "Project", file_mount, container_mount, container_file_mount
+        )
+    )
+
     # Project/Folder
     mount = (
         "{project.disk." + system_name + "}/{project.root}/{project.name}/"
@@ -218,6 +263,62 @@ def register():
     name = "Project/Folder/AssetBuild/Task"
     templates.extend(generate_task_templates(name, mount, ""))
 
+    file_mount = (
+        "{version.task.project.disk." + system_name + "}/"
+        "{version.task.project.root}/"
+        "{version.task.project.name}/"
+        "Assets/"
+        "{version.task.parent.type.name}/"
+        "{version.task.parent.name}/"
+        "{version.task.name}/"
+        "Publish/"
+        "{version.asset.type.short}/"
+        "{version.asset.name}/"
+        "v{version.version}/"
+        "{version.task.parent.type.name}_{version.task.parent.name}_"
+        "{version.task.name}_{name}_v{version.version}{file_type}"
+    )
+    container_mount = (
+        "{version.task.project.disk." + system_name + "}/"
+        "{version.task.project.root}/"
+        "{version.task.project.name}/"
+        "Assets/"
+        "{version.task.parent.type.name}/"
+        "{version.task.parent.name}/"
+        "{version.task.name}/"
+        "Publish/"
+        "{version.asset.type.short}/"
+        "{version.asset.name}/"
+        "v{version.version}/"
+        "{version.task.parent.type.name}_{version.task.parent.name}_"
+        "{version.task.name}_{name}_v{version.version}.%{padding}d{file_type}"
+    )
+    container_file_mount = (
+        "{container.version.task.project.disk." + system_name + "}/"
+        "{container.version.task.project.root}/"
+        "{container.version.task.project.name}/"
+        "Assets/"
+        "{container.version.task.parent.type.name}/"
+        "{container.version.task.parent.name}/"
+        "{container.version.task.name}/"
+        "Publish/"
+        "{container.version.asset.type.short}/"
+        "{container.version.asset.name}/"
+        "v{container.version.version}/"
+        "{container.version.task.parent.type.name}_"
+        "{container.version.task.parent.name}_"
+        "{container.version.task.name}_{container.name}_"
+        "v{container.version.version}.{name}{file_type}"
+    )
+    templates.extend(
+        generate_file_templates(
+            "Project/Folder/AssetBuild",
+            file_mount,
+            container_mount,
+            container_file_mount
+        )
+    )
+
     # Project/Shot
     mount = (
         "{project.disk." + system_name + "}/{project.root}/{project.name}/"
@@ -235,6 +336,57 @@ def register():
     name = "Project/Shot/Task"
     templates.extend(generate_task_templates(name, mount, "{parent.name}_"))
 
+    file_mount = (
+        "{version.task.project.disk." + system_name + "}/"
+        "{version.task.project.root}/"
+        "{version.task.project.name}/"
+        "Shots/"
+        "{version.task.parent.name}/"
+        "{version.task.name}/"
+        "Publish/"
+        "{version.asset.type.short}/"
+        "{version.asset.name}/"
+        "v{version.version}/"
+        "{version.task.parent.name}_{version.task.name}_{name}_"
+        "v{version.version}{file_type}"
+    )
+    container_mount = (
+        "{version.task.project.disk." + system_name + "}/"
+        "{version.task.project.root}/"
+        "{version.task.project.name}/"
+        "Shots/"
+        "{version.task.parent.name}/"
+        "{version.task.name}/"
+        "Publish/"
+        "{version.asset.type.short}/"
+        "{version.asset.name}/"
+        "v{version.version}/"
+        "{version.task.parent.name}_{version.task.name}_{name}_"
+        "v{version.version}.%{padding}d{file_type}"
+    )
+    container_file_mount = (
+        "{container.version.task.project.disk." + system_name + "}/"
+        "{container.version.task.project.root}/"
+        "{container.version.task.project.name}/"
+        "Shots/"
+        "{container.version.task.parent.name}/"
+        "{container.version.task.name}/"
+        "Publish/"
+        "{container.version.asset.type.short}/"
+        "{container.version.asset.name}/"
+        "v{container.version.version}/"
+        "{container.version.task.parent.name}_{container.version.task.name}_"
+        "{container.name}_v{container.version.version}.{name}{file_type}"
+    )
+    templates.extend(
+        generate_file_templates(
+            "Project/Shot",
+            file_mount,
+            container_mount,
+            container_file_mount
+        )
+    )
+
     # Project/Sequence
     mount = (
         "{project.disk." + system_name + "}/{project.root}/{project.name}/"
@@ -250,6 +402,57 @@ def register():
     )
     name = "Project/Sequence/Task"
     templates.extend(generate_task_templates(name, mount, "{parent.name}_"))
+
+    file_mount = (
+        "{version.task.project.disk." + system_name + "}/"
+        "{version.task.project.root}/"
+        "{version.task.project.name}/"
+        "Sequences/"
+        "{version.task.parent.name}/"
+        "{version.task.name}/"
+        "Publish/"
+        "{version.asset.type.short}/"
+        "{version.asset.name}/"
+        "v{version.version}/"
+        "{version.task.parent.name}_{version.task.name}_{name}_"
+        "v{version.version}{file_type}"
+    )
+    container_mount = (
+        "{version.task.project.disk." + system_name + "}/"
+        "{version.task.project.root}/"
+        "{version.task.project.name}/"
+        "Sequences/"
+        "{version.task.parent.name}/"
+        "{version.task.name}/"
+        "Publish/"
+        "{version.asset.type.short}/"
+        "{version.asset.name}/"
+        "v{version.version}/"
+        "{version.task.parent.name}_{version.task.name}_{name}_"
+        "v{version.version}.%{padding}d{file_type}"
+    )
+    container_file_mount = (
+        "{container.version.task.project.disk." + system_name + "}/"
+        "{container.version.task.project.root}/"
+        "{container.version.task.project.name}/"
+        "Sequences/"
+        "{container.version.task.parent.name}/"
+        "{container.version.task.name}/"
+        "Publish/"
+        "{container.version.asset.type.short}/"
+        "{container.version.asset.name}/"
+        "v{container.version.version}/"
+        "{container.version.task.parent.name}_{container.version.task.name}_"
+        "{container.name}_v{container.version.version}.{name}{file_type}"
+    )
+    templates.extend(
+        generate_file_templates(
+            "Project/Sequence",
+            file_mount,
+            container_mount,
+            container_file_mount
+        )
+    )
 
     # Project/Sequence/Shot
     mount = (
@@ -271,6 +474,91 @@ def register():
             name, mount, "{parent.parent.name}_{parent.name}_"
         )
     )
+
+    file_mount = (
+        "{version.task.project.disk." + system_name + "}/"
+        "{version.task.project.root}/"
+        "{version.task.project.name}/"
+        "Sequences/"
+        "{version.task.parent.parent.name}/"
+        "{version.task.parent.name}/"
+        "{version.task.name}/"
+        "Publish/"
+        "{version.asset.type.short}/"
+        "{version.asset.name}/"
+        "v{version.version}/"
+        "{version.task.parent.parent.name}_{version.task.parent.name}_"
+        "{version.task.name}_{name}_v{version.version}{file_type}"
+    )
+    container_mount = (
+        "{version.task.project.disk." + system_name + "}/"
+        "{version.task.project.root}/"
+        "{version.task.project.name}/"
+        "Sequences/"
+        "{version.task.parent.parent.name}/"
+        "{version.task.parent.name}/"
+        "{version.task.name}/"
+        "Publish/"
+        "{version.asset.type.short}/"
+        "{version.asset.name}/"
+        "v{version.version}/"
+        "{version.task.parent.parent.name}_{version.task.parent.name}_"
+        "{version.task.name}_{name}_v{version.version}.%{padding}d{file_type}"
+    )
+    container_file_mount = (
+        "{container.version.task.project.disk." + system_name + "}/"
+        "{container.version.task.project.root}/"
+        "{container.version.task.project.name}/"
+        "Sequences/"
+        "{container.version.task.parent.parent.name}/"
+        "{container.version.task.parent.name}/"
+        "{container.version.task.name}/"
+        "Publish/"
+        "{container.version.asset.type.short}/"
+        "{container.version.asset.name}/"
+        "v{container.version.version}/"
+        "{container.version.task.parent.parent.name}_"
+        "{container.version.task.parent.name}_{container.version.task.name}_"
+        "{container.name}_v{container.version.version}.{name}{file_type}"
+    )
+    templates.extend(
+        generate_file_templates(
+            "Project/Sequence/Shot",
+            file_mount,
+            container_mount,
+            container_file_mount
+        )
+    )
+
+    return templates
+
+
+def generate_file_templates(name_prefix,
+                            file_mount,
+                            container_mount,
+                            container_file_mount):
+
+    templates = []
+
+    # FileComponent
+    name = name_prefix + "/Asset/{0}/AssetVersion/FileComponent/{1}"
+    for ext, short in utils.single_files.iteritems():
+        templates.append(Template(name.format(short, ext), file_mount))
+
+    # SequenceComponent
+    name = name_prefix + "/Asset/{0}/AssetVersion/SequenceComponent/{1}"
+    for ext, short in utils.sequence_files.iteritems():
+        templates.append(Template(name.format(short, ext), container_mount))
+
+    # SequenceComponent/FileComponent
+    name = (
+        name_prefix + "/Asset/{0}/AssetVersion/SequenceComponent/{1}/"
+        "FileComponent/{1}"
+    )
+    for ext, short in utils.sequence_files.iteritems():
+        templates.append(
+            Template(name.format(short, ext), container_file_mount)
+        )
 
     return templates
 

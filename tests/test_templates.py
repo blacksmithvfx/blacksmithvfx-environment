@@ -84,6 +84,22 @@ def get_test_paths():
         "//disk/project_root/test_project/Tasks/editing/Work/houdini/hip/"
         "Editing_editing_v001.hip",
 
+        "//disk/project_root/test_project/Tasks/editing/Publish/scene/"
+        "editing_instanceName/v001/editing_main_v001.mb",
+        "//disk/project_root/test_project/Tasks/editing/Publish/scene/"
+        "editing_instanceName/v001/editing_main_v001.ma",
+        "//disk/project_root/test_project/Tasks/editing/Publish/scene/"
+        "editing_instanceName/v001/editing_main_v001.nk",
+        "//disk/project_root/test_project/Tasks/editing/Publish/mov/"
+        "editing_instanceName/v001/editing_main_v001.mov",
+        "//disk/project_root/test_project/Tasks/editing/Publish/cache/"
+        "editing_instanceName/v001/editing_main_v001.abc",
+
+        "//disk/project_root/test_project/Tasks/editing/Publish/img/"
+        "editing_instanceName/v001/editing_main_v001.%04d.exr",
+        "//disk/project_root/test_project/Tasks/editing/Publish/img/"
+        "editing_instanceName/v001/editing_main_v001.1001.exr",
+
         "//disk/project_root/test_project/Assets",
 
         "//disk/project_root/test_project/Assets/Character/rat",
@@ -159,6 +175,29 @@ def get_test_paths():
         "//disk/project_root/test_project/Assets/Character/rat/lookdev/Work/"
         "houdini/hip/Lookdev_lookdev_v001.hip",
 
+        "//disk/project_root/test_project/Assets/Character/rat/lookdev/"
+        "Publish/scene/lookdev_instanceName/v001/"
+        "Character_rat_lookdev_main_v001.mb",
+        "//disk/project_root/test_project/Assets/Character/rat/lookdev/"
+        "Publish/scene/lookdev_instanceName/v001/"
+        "Character_rat_lookdev_main_v001.ma",
+        "//disk/project_root/test_project/Assets/Character/rat/lookdev/"
+        "Publish/scene/lookdev_instanceName/v001/"
+        "Character_rat_lookdev_main_v001.nk",
+        "//disk/project_root/test_project/Assets/Character/rat/lookdev/"
+        "Publish/mov/lookdev_instanceName/v001/"
+        "Character_rat_lookdev_main_v001.mov",
+        "//disk/project_root/test_project/Assets/Character/rat/lookdev/"
+        "Publish/cache/lookdev_instanceName/v001/"
+        "Character_rat_lookdev_main_v001.abc",
+
+        "//disk/project_root/test_project/Assets/Character/rat/lookdev/"
+        "Publish/img/lookdev_instanceName/v001/"
+        "Character_rat_lookdev_main_v001.%04d.exr",
+        "//disk/project_root/test_project/Assets/Character/rat/lookdev/"
+        "Publish/img/lookdev_instanceName/v001/"
+        "Character_rat_lookdev_main_v001.1001.exr",
+
         "//disk/project_root/test_project/Shots/sh0010",
         "//disk/project_root/test_project/Shots/sh0010/Footage",
 
@@ -231,6 +270,22 @@ def get_test_paths():
         "//disk/project_root/test_project/Shots/sh0010/animation/Work/houdini/"
         "hip/sh0010_Animation_animation_v001.hip",
 
+        "//disk/project_root/test_project/Shots/sh0010/animation/Publish/"
+        "scene/animation_instanceName/v001/sh0010_animation_main_v001.mb",
+        "//disk/project_root/test_project/Shots/sh0010/animation/Publish/"
+        "scene/animation_instanceName/v001/sh0010_animation_main_v001.ma",
+        "//disk/project_root/test_project/Shots/sh0010/animation/Publish/"
+        "scene/animation_instanceName/v001/sh0010_animation_main_v001.nk",
+        "//disk/project_root/test_project/Shots/sh0010/animation/Publish/"
+        "mov/animation_instanceName/v001/sh0010_animation_main_v001.mov",
+        "//disk/project_root/test_project/Shots/sh0010/animation/Publish/"
+        "cache/animation_instanceName/v001/sh0010_animation_main_v001.abc",
+
+        "//disk/project_root/test_project/Shots/sh0010/animation/Publish/"
+        "img/animation_instanceName/v001/sh0010_animation_main_v001.%04d.exr",
+        "//disk/project_root/test_project/Shots/sh0010/animation/Publish/"
+        "img/animation_instanceName/v001/sh0010_animation_main_v001.1001.exr",
+
         "//disk/project_root/test_project/Sequences/sq001",
 
         "//disk/project_root/test_project/Sequences/sq001/editing",
@@ -301,6 +356,22 @@ def get_test_paths():
         "/scenes/sq001_Editing_editing_v001.mb",
         "//disk/project_root/test_project/Sequences/sq001/editing/Work/houdini"
         "/hip/sq001_Editing_editing_v001.hip",
+
+        "//disk/project_root/test_project/Sequences/sq001/editing/Publish/"
+        "scene/editing_instanceName/v001/sq001_editing_main_v001.mb",
+        "//disk/project_root/test_project/Sequences/sq001/editing/Publish/"
+        "scene/editing_instanceName/v001/sq001_editing_main_v001.ma",
+        "//disk/project_root/test_project/Sequences/sq001/editing/Publish/"
+        "scene/editing_instanceName/v001/sq001_editing_main_v001.nk",
+        "//disk/project_root/test_project/Sequences/sq001/editing/Publish/"
+        "mov/editing_instanceName/v001/sq001_editing_main_v001.mov",
+        "//disk/project_root/test_project/Sequences/sq001/editing/Publish/"
+        "cache/editing_instanceName/v001/sq001_editing_main_v001.abc",
+
+        "//disk/project_root/test_project/Sequences/sq001/editing/Publish/"
+        "img/editing_instanceName/v001/sq001_editing_main_v001.%04d.exr",
+        "//disk/project_root/test_project/Sequences/sq001/editing/Publish/"
+        "img/editing_instanceName/v001/sq001_editing_main_v001.1001.exr",
 
         "//disk/project_root/test_project/Sequences/sq001/sh0010",
         "//disk/project_root/test_project/Sequences/sq001/sh0010/Footage",
@@ -375,6 +446,29 @@ def get_test_paths():
         "Work/maya/scenes/sq001_sh0010_Compositing_compositing_v001.mb",
         "//disk/project_root/test_project/Sequences/sq001/sh0010/compositing/"
         "Work/nuke/scripts/sq001_sh0010_Compositing_compositing_v001.nk",
+
+        "//disk/project_root/test_project/Sequences/sq001/sh0010/compositing/"
+        "Publish/scene/compositing_instanceName/v001/"
+        "sq001_sh0010_compositing_main_v001.mb",
+        "//disk/project_root/test_project/Sequences/sq001/sh0010/compositing/"
+        "Publish/scene/compositing_instanceName/v001/"
+        "sq001_sh0010_compositing_main_v001.ma",
+        "//disk/project_root/test_project/Sequences/sq001/sh0010/compositing/"
+        "Publish/scene/compositing_instanceName/v001/"
+        "sq001_sh0010_compositing_main_v001.nk",
+        "//disk/project_root/test_project/Sequences/sq001/sh0010/compositing/"
+        "Publish/mov/compositing_instanceName/v001/"
+        "sq001_sh0010_compositing_main_v001.mov",
+        "//disk/project_root/test_project/Sequences/sq001/sh0010/compositing/"
+        "Publish/cache/compositing_instanceName/v001/"
+        "sq001_sh0010_compositing_main_v001.abc",
+
+        "//disk/project_root/test_project/Sequences/sq001/sh0010/compositing/"
+        "Publish/img/compositing_instanceName/v001/"
+        "sq001_sh0010_compositing_main_v001.%04d.exr",
+        "//disk/project_root/test_project/Sequences/sq001/sh0010/compositing/"
+        "Publish/img/compositing_instanceName/v001/"
+        "sq001_sh0010_compositing_main_v001.1001.exr",
     ]
 
 
@@ -401,14 +495,6 @@ def get_resolved_paths(entity):
             raise type(e)(msg)
 
     return resolved_paths
-
-
-def get_workfile_extensions():
-    return [".nk", ".mb", ".hip"]
-
-
-def get_imagefile_extensions():
-    return [".exr", ".dpx", ".jpeg", ".jpg", ".hdr"]
 
 
 def test_environment():
@@ -473,6 +559,101 @@ def test_excess_templates():
     assert not paths, msg
 
 
+def generate_work_file_tasks(parent, project, name, type_name):
+    entities = []
+
+    for ext in utils.workfile_extensions:
+        task = utils.mock_entity(
+            ("parent", parent),
+            ("project", project),
+            ("version", 1),
+            ("file_type", ext),
+            ("name", name),
+            ("type", {"name": type_name}),
+            entity_type="Task"
+        )
+        entities.append(task)
+
+    return entities
+
+
+def generate_file_components(task):
+    entities = []
+    for ext, short in utils.single_files.iteritems():
+        assettype = utils.mock_entity(
+            ("short", short),
+            entity_type="Type"
+        )
+        asset = utils.mock_entity(
+            ("parent", task["parent"]),
+            ("type", assettype),
+            ("name", "{0}_instanceName".format(task["name"])),
+            entity_type="Asset"
+        )
+        assetversion = utils.mock_entity(
+            ("asset", asset),
+            ("task", task),
+            ("version", 1),
+            entity_type="AssetVersion"
+        )
+        entity = utils.mock_entity(
+            ("version", assetversion),
+            ("file_type", ext),
+            ("name", "main"),
+            entity_type="FileComponent"
+        )
+        entities.append(entity)
+
+    return entities
+
+
+def generate_sequence_components(task):
+    entities = []
+
+    for ext, short in utils.sequence_files.iteritems():
+        assettype = utils.mock_entity(
+            ("short", short),
+            entity_type="Type"
+        )
+        asset = utils.mock_entity(
+            ("parent", task["parent"]),
+            ("type", assettype),
+            ("name", "{0}_instanceName".format(task["name"])),
+            entity_type="Asset"
+        )
+        assetversion = utils.mock_entity(
+            ("asset", asset),
+            ("task", task),
+            ("version", 1),
+            entity_type="AssetVersion"
+        )
+        entity = utils.mock_entity(
+            ("version", assetversion),
+            ("name", "main"),
+            ("file_type", ext),
+            ("padding", 4),
+            entity_type="SequenceComponent"
+        )
+        entities.append(entity)
+
+    return entities
+
+
+def generate_container_members(containers):
+    entities = []
+    for container in containers:
+        entity = utils.mock_entity(
+            ("version", None),
+            ("container", container),
+            ("file_type", container["file_type"]),
+            ("name", "1001"),
+            entity_type="FileComponent"
+        )
+        entities.append(entity)
+
+    return entities
+
+
 def get_project():
     return utils.mock_entity(
         ("disk", {"windows": "//disk", "unix": "//disk"}),
@@ -502,25 +683,42 @@ def test_project_task():
 
 def get_project_task_workfiles():
     project = get_project()
-    entities = []
-
-    for ext in get_workfile_extensions():
-        task = utils.mock_entity(
-            ("parent", project),
-            ("project", project),
-            ("version", 1),
-            ("file_type", ext),
-            ("name", "editing"),
-            ("type", {"name": "Editing"}),
-            entity_type="Task"
-        )
-        entities.append(task)
-
-    return entities
+    return generate_work_file_tasks(project, project, "editing", "Editing")
 
 
 def test_project_task_workfiles():
     for entity in get_project_task_workfiles():
+        assert_entity(entity)
+
+
+def get_project_task_file_components():
+    task = get_project_task()
+    return generate_file_components(task)
+
+
+def test_project_task_file_components():
+    for entity in get_project_task_file_components():
+        assert_entity(entity)
+
+
+def get_project_task_sequence_components():
+    task = get_project_task()
+    return generate_sequence_components(task)
+
+
+def test_project_task_sequence_components():
+    for entity in get_project_task_sequence_components():
+        assert_entity(entity)
+
+
+def get_project_task_sequence_files():
+    return generate_container_members(
+        get_project_task_sequence_components()
+    )
+
+
+def test_project_task_sequence_files():
+    for entity in get_project_task_sequence_files():
         assert_entity(entity)
 
 
@@ -575,28 +773,45 @@ def test_project_folder_assetbuild_task():
 
 
 def get_project_folder_assetbuild_task_workfiles():
-
     project = get_project()
     parent = get_project_folder_assetbuild()
-    entities = []
-
-    for ext in get_workfile_extensions():
-        task = utils.mock_entity(
-            ("parent", parent),
-            ("project", project),
-            ("version", 1),
-            ("file_type", ext),
-            ("name", "lookdev"),
-            ("type", {"name": "Lookdev"}),
-            entity_type="Task"
-        )
-        entities.append(task)
-
-    return entities
+    return generate_work_file_tasks(parent, project, "lookdev", "Lookdev")
 
 
 def test_project_folder_assetbuild_task_workfiles():
     for entity in get_project_folder_assetbuild_task_workfiles():
+        assert_entity(entity)
+
+
+def get_project_folder_assetbuild_task_file_components():
+    task = get_project_folder_assetbuild_task()
+    return generate_file_components(task)
+
+
+def test_project_folder_assetbuild_task_file_components():
+    for entity in get_project_folder_assetbuild_task_file_components():
+        assert_entity(entity)
+
+
+def get_project_folder_assetbuild_task_sequence_components():
+    task = get_project_folder_assetbuild_task()
+    return generate_sequence_components(task)
+
+
+def test_project_folder_assetbuild_task_sequence_components():
+    for entity in get_project_folder_assetbuild_task_sequence_components():
+        assert_entity(entity)
+
+
+def get_project_folder_assetbuild_task_sequence_files():
+    return generate_container_members(
+        get_project_folder_assetbuild_task_sequence_components()
+    )
+
+
+def test_project_folder_assetbuild_task_sequence_files():
+    e = get_project_folder_assetbuild_task_sequence_files()
+    for entity in e:
         assert_entity(entity)
 
 
@@ -632,28 +847,44 @@ def test_project_shot_task():
 
 
 def get_project_shot_task_workfiles():
-
     project = get_project()
     parent = get_project_shot()
-    entities = []
-
-    for ext in get_workfile_extensions():
-        task = utils.mock_entity(
-            ("parent", parent),
-            ("project", project),
-            ("version", 1),
-            ("file_type", ext),
-            ("name", "animation"),
-            ("type", {"name": "Animation"}),
-            entity_type="Task"
-        )
-        entities.append(task)
-
-    return entities
+    return generate_work_file_tasks(parent, project, "animation", "Animation")
 
 
 def test_project_shot_task_workfiles():
     for entity in get_project_shot_task_workfiles():
+        assert_entity(entity)
+
+
+def get_project_shot_task_file_components():
+    task = get_project_shot_task()
+    return generate_file_components(task)
+
+
+def test_project_shot_task_file_components():
+    for entity in get_project_shot_task_file_components():
+        assert_entity(entity)
+
+
+def get_project_shot_task_sequence_components():
+    task = get_project_shot_task()
+    return generate_sequence_components(task)
+
+
+def test_project_shot_task_sequence_components():
+    for entity in get_project_shot_task_sequence_components():
+        assert_entity(entity)
+
+
+def get_project_shot_task_sequence_files():
+    return generate_container_members(
+        get_project_shot_task_sequence_components()
+    )
+
+
+def test_project_shot_task_sequence_files():
+    for entity in get_project_shot_task_sequence_files():
         assert_entity(entity)
 
 
@@ -687,28 +918,44 @@ def test_project_sequence_task():
 
 
 def get_project_sequence_task_workfiles():
-
     project = get_project()
     parent = get_project_sequence()
-    entities = []
-
-    for ext in get_workfile_extensions():
-        task = utils.mock_entity(
-            ("parent", parent),
-            ("project", project),
-            ("version", 1),
-            ("file_type", ext),
-            ("name", "editing"),
-            ("type", {"name": "Editing"}),
-            entity_type="Task"
-        )
-        entities.append(task)
-
-    return entities
+    return generate_work_file_tasks(parent, project, "editing", "Editing")
 
 
 def test_project_sequence_task_workfiles():
     for entity in get_project_sequence_task_workfiles():
+        assert_entity(entity)
+
+
+def get_project_sequence_task_file_components():
+    task = get_project_sequence_task()
+    return generate_file_components(task)
+
+
+def test_project_sequence_task_file_components():
+    for entity in get_project_sequence_task_file_components():
+        assert_entity(entity)
+
+
+def get_project_sequence_task_sequence_components():
+    task = get_project_sequence_task()
+    return generate_sequence_components(task)
+
+
+def test_project_sequence_task_sequence_components():
+    for entity in get_project_sequence_task_sequence_components():
+        assert_entity(entity)
+
+
+def get_project_sequence_task_sequence_files():
+    return generate_container_members(
+        get_project_sequence_task_sequence_components()
+    )
+
+
+def test_project_sequence_task_sequence_files():
+    for entity in get_project_sequence_task_sequence_files():
         assert_entity(entity)
 
 
@@ -743,28 +990,46 @@ def test_project_sequence_shot_task():
 
 
 def get_project_sequence_shot_task_workfiles():
-
     project = get_project()
     parent = get_project_sequence_shot()
-    entities = []
-
-    for ext in get_workfile_extensions():
-        task = utils.mock_entity(
-            ("parent", parent),
-            ("project", project),
-            ("version", 1),
-            ("file_type", ext),
-            ("name", "compositing"),
-            ("type", {"name": "Compositing"}),
-            entity_type="Task"
-        )
-        entities.append(task)
-
-    return entities
+    return generate_work_file_tasks(
+        parent, project, "compositing", "Compositing"
+    )
 
 
 def test_project_sequence_shot_task_workfiles():
     for entity in get_project_sequence_shot_task_workfiles():
+        assert_entity(entity)
+
+
+def get_project_sequence_shot_task_file_components():
+    task = get_project_sequence_shot_task()
+    return generate_file_components(task)
+
+
+def test_project_sequence_shot_task_file_components():
+    for entity in get_project_sequence_shot_task_file_components():
+        assert_entity(entity)
+
+
+def get_project_sequence_shot_task_sequence_components():
+    task = get_project_sequence_shot_task()
+    return generate_sequence_components(task)
+
+
+def test_project_sequence_shot_task_sequence_components():
+    for entity in get_project_sequence_shot_task_sequence_components():
+        assert_entity(entity)
+
+
+def get_project_sequence_shot_task_sequence_files():
+    return generate_container_members(
+        get_project_sequence_shot_task_sequence_components()
+    )
+
+
+def test_project_sequence_shot_task_sequence_files():
+    for entity in get_project_sequence_shot_task_sequence_files():
         assert_entity(entity)
 
 
@@ -775,21 +1040,43 @@ def get_entities():
 
     entities.append(get_project_task())
     entities.extend(get_project_task_workfiles())
+    entities.extend(get_project_task_file_components())
+    entities.extend(get_project_task_sequence_components())
+    entities.extend(get_project_task_sequence_files())
 
     entities.append(get_project_folder())
     entities.append(get_project_folder_assetbuild())
     entities.append(get_project_folder_assetbuild_task())
     entities.extend(get_project_folder_assetbuild_task_workfiles())
+    entities.extend(get_project_folder_assetbuild_task_file_components())
+    entities.extend(get_project_folder_assetbuild_task_sequence_components())
+    entities.extend(
+        get_project_folder_assetbuild_task_sequence_files()
+    )
 
     entities.append(get_project_shot())
     entities.append(get_project_shot_task())
     entities.extend(get_project_shot_task_workfiles())
+    entities.extend(get_project_shot_task_file_components())
+    entities.extend(get_project_shot_task_sequence_components())
+    entities.extend(get_project_shot_task_sequence_files())
 
     entities.append(get_project_sequence())
     entities.append(get_project_sequence_task())
     entities.extend(get_project_sequence_task_workfiles())
+    entities.extend(get_project_sequence_task_file_components())
+    entities.extend(get_project_sequence_task_sequence_components())
+    entities.extend(
+        get_project_sequence_task_sequence_files()
+    )
+
     entities.append(get_project_sequence_shot())
     entities.append(get_project_sequence_shot_task())
     entities.extend(get_project_sequence_shot_task_workfiles())
+    entities.extend(get_project_sequence_shot_task_file_components())
+    entities.extend(get_project_sequence_shot_task_sequence_components())
+    entities.extend(
+        get_project_sequence_shot_task_sequence_files()
+    )
 
     return entities
