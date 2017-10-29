@@ -71,6 +71,11 @@ env["FTRACK_CONNECT_PLUGIN_PATH"] = [
     os.path.join(
         os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks", "houdini"
     ),
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "ftrack-hooks",
+        "dynamic_environment"
+    ),
     os.path.join(root, "environment", "FTRACK_CONNECT_PLUGIN_PATH"),
     os.path.join(
         os.environ["CONDA_GIT_REPOSITORY"], "pyblish-ftrack", "pyblish_ftrack"
@@ -90,6 +95,11 @@ env["FTRACK_EVENT_PLUGIN_PATH"] = [
 # FTRACK_LOCATIONS_MODULE
 env["FTRACK_LOCATIONS_MODULE"] = [
     os.environ.get("FTRACK_LOCATIONS_MODULE", "ftrack_template_disk")
+]
+
+# FTRACK_APP_ENVIRONMENTS
+env["FTRACK_APP_ENVIRONMENTS"] = [
+    os.path.join(root, "environment", "FTRACK_APP_ENVIRONMENTS")
 ]
 
 # Kill existing ftrack_connects
