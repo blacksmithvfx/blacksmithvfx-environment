@@ -6,6 +6,7 @@ import operator
 
 import ftrack
 import ftrack_api
+import lucidity
 from blacksmithvfx_environment import utils
 
 
@@ -36,15 +37,14 @@ def get_task_data(event):
     if app_id == "nukex":
         app_id = "nuke"
 
-    work_file = utils.get_work_file(session, task, app_id, 1)
-    work_area = os.path.dirname(work_file)
-
-    """
     # Pyblish
     if app_id == "pyblish":
+        task_area, _ = lucidity.format(task, lucidity.discover_templates())
         data["command"].extend(["--path", task_area])
         return data
-    """
+
+    work_file = utils.get_work_file(session, task, app_id, 1)
+    work_area = os.path.dirname(work_file)
 
     # Finding existing work files
     if os.path.exists(work_area):
