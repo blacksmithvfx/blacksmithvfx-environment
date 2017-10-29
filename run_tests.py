@@ -16,6 +16,7 @@ path = os.path.abspath(
 os.environ["LUCIDITY_TEMPLATE_PATH"] = path
 
 subprocess.call(["pip", "install", "pytest"])
+subprocess.call(["pip", "install", "lucidity"])
 
 import pytest
 pytest.main(
