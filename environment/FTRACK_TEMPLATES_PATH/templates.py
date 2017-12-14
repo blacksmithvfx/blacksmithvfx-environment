@@ -261,7 +261,12 @@ def register():
                         task: sequence_shot_task_structure
                     },
                     "Footage": {}
-                }
+                },
+                "Conform": {
+                	"nukestudio": {},
+                	"flame": {},
+                	"render": {},
+                },
             },
             episodes: {
                 task: task_structure,
