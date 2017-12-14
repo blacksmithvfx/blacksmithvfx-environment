@@ -126,7 +126,12 @@ def register():
                 }
             },
             "nuke": {
-                "scripts": {}
+                "scripts": {},
+                "renders": {
+                	"precomp": {},
+                	"comp": {},
+                	"slapcomp": {},
+                },
             },
         }
     }
